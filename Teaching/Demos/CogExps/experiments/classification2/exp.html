@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <script src='../ocanvas-2.10.0.js'></script>
+        <script src='../utils.js'></script>
+
+    </head>
+    
+    <body style = 'background: rgb(190,190,190);'>
+
+        <canvas id = 'mainCanvas' style = 'position: absolute; width: 100%; height: 100%;'></canvas>
+
+        <script type="text/javascript">
+            canvas = document.getElementById('mainCanvas')
+            var ctx = canvas.getContext('2d');
+            ctx.canvas.width  = window.innerWidth - 20;
+            ctx.canvas.height = window.innerHeight - 20;
+
+            space = oCanvas.create({
+                canvas: canvas,
+                background: 'rgb(190,190,190)',
+            })
+
+            cX = space.canvasElement.width / 2
+            cY = space.canvasElement.height / 2
+
+            mX = space.canvasElement.width
+            mY = space.canvasElement.height
+
+            state = 'selection'
+            rt = 0
+            trial = 0
+            block = 0
+            initTime = new Date().getTime()
+            num_blocks = 5
+
+            data = [['trial','block','stim','correct response','subjects guess', 'accuracy','rt']]
+            stim = [
+                'stim/000.png',
+                'stim/001.png',
+                'stim/010.png',
+                'stim/011.png',
+                'stim/100.png',
+                'stim/101.png',
+                'stim/110.png',
+                'stim/111.png',
+            ]
+            labels = [
+                'A',
+                'A',
+                'A',
+                'B',
+                'A',
+                'B',
+                'B',
+                'B',
+            ]
+
+            stim = shuffle(stim)
+
+
+            function selection(select) {
+
+                state = 'block'
+                rt = new Date().getTime() - initTime
+
+                if (imgStim.category == select) {
+                    acc = 1; fbMsg = 'Correct!'
+                } else {
+                    acc = 0; fbMsg = 'Nope...'
+                }
+                feedback.obj.text = fbMsg
+                feedback.obj.add()
+
+                data.push([trial, block, imgStim.obj.image, stim[trial], labels[trial], acc, rt])
+         
+                trial += 1
+                if (trial >= stim.length) {
+                    trial = 0
+                    block += 1
+
+                    if (block >= num_blocks) {
+                        save_and_quit(data)
+                        destory = true
+                    }
+                }
+
+                setTimeout( function () {
+
+                    objA.obj.remove()
+                    objB.obj.remove()
+                    space.removeChild(imgStim.obj, redraw = true)
+                    feedback.obj.remove()
+
+                    setTimeout( function() {
+                        objA.obj.add()
+                        objB.obj.add()
+                        imgStim = makestim()
+                        imgStim.setlocation()
+                        space.addChild(imgStim.obj)
+
+                        state = 'selection'
+                    }, 500)
+                }, 700)
+
+            }
+
+            // make objects
+            objA = {
+                obj: space.display.rectangle({
+                    origin: { x: "center", y: "center" },
+                    height: 100,
+                    fill: "rgba(240,240,240, .8)",
+                    // stroke: "4px black",
+                    join: "round",
+                }),
+                setlocation: function() {
+                    this['obj'].width = cX * .7
+                    this['obj'].x = cX - this['obj'].width / 1.5
+                    this['obj'].y = mY - 100
+                }
+            }
+            objA.setlocation()
+
+            objA['obj'].addChild(
+                space.display.text({
+                    x: 0,
+                    y: 0,
+                    origin: { x: "center", y: "center" },
+                    font: "bold 35px sans-serif",
+                    text: "Category A",
+                    fill: "rgba(0,0,0,1)",
+                    zIndex: "front",
+                })
+            )
+
+            objB = {
+                obj: space.display.rectangle({
+                    origin: { x: "center", y: "center" },
+                    height: 100,
+                    fill: "rgba(240,240,240, .8)",
+                    // stroke: "4px black",
+                    join: "round",
+                }),
+                setlocation: function() {
+                    this['obj'].width = cX * .7
+                    this['obj'].x = cX + this['obj'].width / 1.5
+                    this['obj'].y = mY - 100
+                }
+            }
+            objB.setlocation()
+
+            objB['obj'].addChild(
+                space.display.text({
+                    x: 0,
+                    y: 0,
+                    origin: { x: "center", y: "center" },
+                    font: "bold 35px sans-serif",
+                    text: "Category B",
+                    fill: "rgba(0,0,0,1)",
+                    zIndex: "front",
+                })
+            )
+
+
+
+            feedback = {
+                obj: space.display.text({
+                    x: 0,
+                    y: 0,
+                    origin: { x: "center", y: "center" },
+                    font: "bold 35px sans-serif",
+                    text: "",
+                    fill: "rgba(0,0,0,1)",
+                    zIndex: "front",
+                }),
+                setlocation: function() {
+                    this['obj'].x = cX
+                    this['obj'].y = mY - 200
+                }
+            }
+            feedback.setlocation()
+
+            imgStim = makestim()
+            imgStim.setlocation()
+
+            space.addChild(objA['obj'])
+            space.addChild(objB['obj'])
+            // space.addChild(feedback['obj'])
+            space.addChild(imgStim['obj'])
+
+
+            objA['obj'].bind('click tap', function() {
+                if (state == 'selection') {
+                    selection('A')
+                }
+            })
+            objB['obj'].bind('click tap', function() {
+                if (state == 'selection') {
+                    selection('B')
+                }
+            })
+
+            function makestim() {
+                return {
+                    obj: space.display.image({
+                        origin: { x: "center", y: "center" },
+                        image: stim[trial],
+                    }),
+                    category: labels[trial],
+                    setlocation: function() {
+                        this['obj'].x = cX
+                        this['obj'].y = 384/2
+                    }
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <script src='../ocanvas-2.10.0.js'></script>
+        <script src='../utils.js'></script>
+
+    </head>
+    
+    <body style = 'background: rgb(190,190,190);'>
+
+        <canvas id = 'mainCanvas' style = 'position: absolute; width: 100%; height: 100%;'></canvas>
+
+        <script type="text/javascript">
+            /*
+                Posners et al Cueing Task
+                - cue shown
+                - then image, left or right
+                    - half the time, cue matches image location
+                - selection is based on presented image
+            */
+            canvas = document.getElementById('mainCanvas')
+            var ctx = canvas.getContext('2d');
+            ctx.canvas.width  = window.innerWidth - 20;
+            ctx.canvas.height = window.innerHeight - 20;
+
+            space = oCanvas.create({
+                canvas: canvas,
+                background: 'rgb(190,190,190)',
+            })
+
+            cX = space.canvasElement.width / 2
+            cY = space.canvasElement.height / 2
+
+            mX = space.canvasElement.width
+            mY = space.canvasElement.height
+
+            state = 'unstarted'
+            rt = 0
+            trial = 0
+            block = 0
+            initTime = new Date().getTime()
+            num_blocks = 2
+            delay = 300
+
+            data = [['trial','block','selection','rt']]
+
+            A_A = 'stim/A-A.png'
+            A_B = 'stim/A-B.png'
+            A_C = 'stim/A-C.png'
+            A_D = 'stim/A-D.png'
+            B_B = 'stim/B-B.png'
+            B_C = 'stim/B-C.png'
+            B_D = 'stim/B-D.png'
+            C_C = 'stim/C-C.png'
+            C_D = 'stim/C-D.png'
+            D_D = 'stim/D-D.png'
+
+            triads = [
+                [A_A,A_B,B_B],
+                [A_A,A_C,C_C],
+                [A_A,A_D,D_D],
+                [B_B,B_C,C_C],
+                [B_B,B_D,D_D],
+                [C_C,C_D,D_D],
+            ]
+
+            triads = shuffle(triads)
+
+            function start() {
+                space.removeChild(startButton)
+                space.addChild(Instructions)
+                trialEvent()
+            }
+
+
+            function trialEvent() {
+                state = 'selection'
+
+                triad = triads[trial]
+                counterbalance = shuffle([-1,1])
+
+                Target = makeTarget(triad[0])
+                optionFeat = makeoptionFeat(triad[1])
+                optionRel = makeoptionRel(triad[2])
+                optionRel.x = cX + ((mX * .3) * counterbalance[0])
+                optionFeat.x = cX + ((mX * .3) * counterbalance[1])
+
+                setTimeout( function () {
+                    space.addChild(Target)
+                    space.addChild(optionRel)
+                    space.addChild(optionFeat)
+                }, delay)
+            }
+
+
+            function selection(selection) {
+                state = 'block'
+
+                Target.remove()
+                optionRel.remove()
+                optionFeat.remove()
+
+                rt = new Date().getTime() - initTime
+
+                data.push([trial, block, selection, rt])
+         
+                trial += 1
+                if (trial >= triads.length) {
+                    trial = 0
+                    block += 1
+
+                    if (block >= num_blocks) {
+                        save_and_quit(data)
+                        destory = true
+                    }
+                }
+
+                setTimeout( function () {
+                    state = 'selection'
+
+                    setTimeout( function() {
+                        trialEvent()
+                    }, 500)
+                }, 700)
+
+            }
+
+
+
+
+
+
+            // make objects
+            startButton = space.display.rectangle({
+                origin: { x: "center", y: "center" },
+                height: 100,
+                fill: "rgba(240,240,240, .8)",
+                stroke: "4px black",
+                join: "round",
+                setlocation: function() {
+                    this.width = cX * .7
+                    this.x = cX
+                    this.y = mY - 100
+                },
+            })
+            startButton.setlocation()
+
+            startButton.addChild(
+                space.display.text({
+                    x: 0,
+                    y: 0,
+                    origin: { x: "center", y: "center" },
+                    font: "bold 35px sans-serif",
+                    text: "Start",
+                    fill: "rgba(0,0,0,1)",
+                    zIndex: "front",
+                })
+            )
+
+
+            // TargetS AND OPTIONS
+            function makeTarget(image) {
+                Target = space.display.image({
+                    origin: { x: "center", y: "center" },
+                    image: image,
+                    setlocation: function() {
+                        this.width = cX * .5
+                        // this.height = cX * .5
+                        this.x = cX
+                        this.y = (- mY * .1) + cY + mY * .25
+                    }
+                })
+                Target.addChild(space.display.text({
+                    x: 0,
+                    y: 120,
+                    origin: { x: "center", y: "center" },
+                    font: "bold 35px sans-serif",
+                    text: "Target",
+                    fill: "rgba(0,0,0,1)",
+                    // zIndex: "front",
+                }))
+                Target.setlocation()
+                return Target
+                }
+
+                function makeoptionRel(image) {
+                    optionRel = space.display.image({
+                        origin: { x: "center", y: "center" },
+                        image: image,
+                        setlocation: function() {
+                            this.width = cX * .5
+                            // this.height = cX * .5
+                            this.y = (- mY * .1) + cY - mY * .25
+                        }
+                    })
+                    optionRel.addChild(space.display.text({
+                        x: 0,
+                        y: 120,
+                        origin: { x: "center", y: "center" },
+                        font: "bold 35px sans-serif",
+                        text: "Option",
+                        fill: "rgba(0,0,0,1)",
+                        // zIndex: "front",
+                    }))
+                    optionRel.setlocation()
+                    optionRel.bind('click tap', function() {
+                        if (state == 'selection') {
+                            selection('relational')
+                        }
+                    })               
+                    return optionRel
+                }
+
+            function makeoptionFeat(image) {
+                optionFeat = space.display.image({
+                    origin: { x: "center", y: "center" },
+                    image: image,
+                    setlocation: function() {
+                        this.width = cX * .5
+                        // this.height = cX * .5
+                        this.y = (- mY * .1) + cY - mY * .25
+                    }
+                })
+                optionFeat.addChild(space.display.text({
+                    x: 0,
+                    y: 120,
+                    origin: { x: "center", y: "center" },
+                    font: "bold 35px sans-serif",
+                    text: "Option",
+                    fill: "rgba(0,0,0,1)",
+                    // zIndex: "front",
+                }))
+                optionFeat.setlocation()
+                optionFeat.bind('click tap', function() {
+                    if (state == 'selection') {
+                        selection('featural')
+                    }
+                })
+                return optionFeat
+            }
+
+
+            Instructions = space.display.text({
+                x: 0,
+                y: 0,
+                origin: { x: "center", y: "center" },
+                font: "bold 35px sans-serif",
+                text: "Choose the Option that matches the pattern of the Target",
+                fill: "rgba(0,0,0,1)",
+                zIndex: "front",
+                setlocation: function() {
+                    this.x = cX
+                    this.y = mY - mY * .05
+                }
+            })
+            Instructions.setlocation()
+
+
+            // space.addChild(feedback)
+            space.addChild(startButton)
+
+
+            // bind experiment logic to objects
+
+            startButton.bind('click tap', function() {
+                start()
+            })
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <script src="experiments/utils.js"></script>
+        <script src='experiments/ocanvas-2.10.0.js'></script>
+
+    </head>
+    
+    <body style = 'background: rgb(190,190,190);'>
+        <div id='main'></div>
+       
+        <form>
+            <label for="subject_id">type an id num:</label><br>
+            <input type="text" id="subject_id" name="subject_id"><br>
+
+            <label for="experiment">experiment:</label><br>
+
+            <select id="experiment" name="subject_condition">
+            
+                <!-- IF YOU WANT TO ADD/REMOVE CONDITIONS!! this is where you do it. just copy/past a new option tag -->
+                <option value="classification">classification</option>
+                <option value="classification2">classification2</option>
+                <option value="cueing">cueing</option>
+                <option value="rms">match-to-sample</option>
+
+
+            </select>
+
+            <br><br>
+
+        </form>
+        <button type="button" onClick="start_exp()">Submit</button>
+
+
+        <script type="text/javascript">
+
+            function start_exp() {
+                localStorage.setItem("subject_id", document.getElementById('subject_id').value)
+                localStorage.setItem("experiment", document.getElementById('experiment').value)
+
+                window.location.href = 'experiments/'.concat(document.getElementById('experiment').value).concat('/instructions.html')
+            }
+
+
+
+        </script>
+
+    </body>
+</html>

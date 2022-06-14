@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <script src='../ocanvas-2.10.0.js'></script>
+        <script src='../utils.js'></script>
+
+    </head>
+    
+    <body style = 'background: rgb(190,190,190);'>
+
+        <canvas id = 'mainCanvas' style = 'position: absolute; width: 100%; height: 100%;'></canvas>
+
+        <script type="text/javascript">
+            /*
+                Posners et al Cueing Task
+                - cue shown
+                - then image, left or right
+                    - half the time, cue matches image location
+                - selection is based on presented image
+            */
+            canvas = document.getElementById('mainCanvas')
+            var ctx = canvas.getContext('2d');
+            ctx.canvas.width  = window.innerWidth - 20;
+            ctx.canvas.height = window.innerHeight - 20;
+
+            space = oCanvas.create({
+                canvas: canvas,
+                background: 'rgb(190,190,190)',
+            })
+
+            cX = space.canvasElement.width / 2
+            cY = space.canvasElement.height / 2
+
+            mX = space.canvasElement.width
+            mY = space.canvasElement.height
+
+            state = 'unstarted'
+            rt = 0
+            trial = 0
+            block = 0
+            initTime = new Date().getTime()
+            num_blocks = 6
+            delay = 300
+
+            data = [['trial','block','trialType','rt']]
+
+            trialStim = [
+                'valid',
+                'valid',
+                'invalid',
+                'invalid',
+            ]
+
+            cues = ['<--', '-->']
+
+            trialStim = shuffle(trialStim)
+
+            function start() {
+                state = 'selection'
+                space.removeChild(startButton)
+                trialEvent()
+            }
+
+
+            function trialEvent() {
+
+                trialType = trialStim[trial]
+
+                idx = shuffle([0,1])
+                
+                space.removeChild(fixationCross)
+                console.log(trialType)
+                if (trialType == 'valid') {
+                    dispObj = [targetLeft, targetRight][idx[0]]
+                    fixationCross.text = cues[idx[0]]
+                } else if (trialType == 'invalid') {
+                    dispObj = [targetLeft, targetRight][idx[0]]
+                    fixationCross.text = cues[idx[1]]
+                }
+
+                space.addChild(fixationCross)
+
+                setTimeout( function () {
+                    space.addChild(dispObj)
+                    space.removeChild(fixationCross)
+
+                }, delay)
+            }
+
+
+            function selection(select) {
+                space.removeChild(dispObj)
+
+                state = 'block'
+                rt = new Date().getTime() - initTime
+
+                data.push([trial, block, trialType, rt])
+         
+                trial += 1
+                if (trial >= trialStim.length) {
+                    trial = 0
+                    block += 1
+
+                    if (block >= num_blocks) {
+                        save_and_quit(data)
+                        destory = true
+                    }
+                }
+
+                setTimeout( function () {
+                    fixationCross.text = '+'
+                    space.addChild(fixationCross)
+                    state = 'selection'
+
+                    setTimeout( function() {
+                        trialEvent()
+                    }, 500)
+                }, 700)
+
+            }
+
+
+
+
+
+
+            // make objects
+            startButton = space.display.rectangle({
+                origin: { x: "center", y: "center" },
+                height: 100,
+                fill: "rgba(240,240,240, .8)",
+                stroke: "4px black",
+                join: "round",
+                setlocation: function() {
+                    this.width = cX * .7
+                    this.x = cX
+                    this.y = mY - 100
+                },
+            })
+            startButton.setlocation()
+
+            startButton.addChild(
+                space.display.text({
+                    x: 0,
+                    y: 0,
+                    origin: { x: "center", y: "center" },
+                    font: "bold 35px sans-serif",
+                    text: "Start",
+                    fill: "rgba(0,0,0,1)",
+                    zIndex: "front",
+                })
+            )
+
+            targetLeft = space.display.rectangle({
+                origin: { x: "center", y: "center" },
+                fill: "rgba(0,0,0, 1)",
+                // stroke: "4px black",
+                join: "round",
+                setlocation: function() {
+                    this.width = cX * .5
+                    this.height = cX * .5
+                    this.x = cX - this.width / 1.5
+                    this.y = cY
+                }
+            })
+            targetLeft.setlocation()
+
+            targetRight = space.display.rectangle({
+                origin: { x: "center", y: "center" },
+                fill: "rgba(0,0,0, 1)",
+                // stroke: "4px black",
+                join: "round",
+                setlocation: function() {
+                    this.width = cX * .5
+                    this.height = cX * .5
+                    this.x = cX + this.width / 1.5
+                    this.y = cY
+                }
+            })
+            targetRight.setlocation()
+
+            fixationCross = space.display.text({
+                x: 0,
+                y: 0,
+                origin: { x: "center", y: "center" },
+                font: "bold 95px sans-serif",
+                text: "+",
+                fill: "rgba(0,0,0,1)",
+                zIndex: "front",
+                setlocation: function() {
+                    this.x = cX
+                    this.y = cY
+                }
+            })
+            fixationCross.setlocation()
+
+
+            // space.addChild(feedback)
+            space.addChild(startButton)
+
+
+            // bind experiment logic to objects
+
+            startButton.bind('click tap', function() {
+                start()
+            })
+
+            targetLeft.bind('click tap', function() {
+                if (state == 'selection') {
+                    selection('l')
+                }
+            })
+
+            targetRight.bind('click tap', function() {
+                if (state == 'selection') {
+                    selection('r')
+                }
+            })
+
+
+        </script>
+
+    </body>
+</html>
