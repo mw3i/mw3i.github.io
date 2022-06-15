@@ -8,10 +8,17 @@
         <div id="divmain" style="height: 100vh; width: 100vw; display: flex;">
             <script type="text/javascript">
                 links = [
-                    ['1', 'https://mw3i.github.io/Blog/posts/1.md'],
-                    ['2', 'https://mw3i.github.io/Blog/posts/2.md'],
-                    ['3', 'https://mw3i.github.io/Blog/posts/3.md'],
+                    ['1', './posts/1.md'],
+                    ['2', './posts/2.md'],
+                    ['3', './posts/3.md'],
                 ]
+
+                document.getElementById('zeromdelement').remove()
+                newmd = document.createElement('zero-md')
+                newmd.id = 'zeromdelement'
+                newmd.src = '../resources/prerendered/cv.md'
+                newmd.style = "margin: 10px;"
+                document.getElementById('blogpost').appendChild(newmd)
 
                 sidebox = document.createElement('div')
                 sidebox.id = 'sidebox'
@@ -56,8 +63,8 @@
                 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
           
                 <!-- <zero-md id='zeromdelement' style="margin: 10px;" src="../resources/prerendered/cv.md"> -->
-                <zero-md id='zeromdelement' style="margin: 10px;" src="./posts/1.md">
-                </zero-md>
+                <!-- <zero-md id='zeromdelement' style="margin: 10px;" src="./posts/1.md"> -->
+                <!-- </zero-md> -->
 
             </div>
 
