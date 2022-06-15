@@ -22,7 +22,6 @@
                 document.getElementById('divmain').appendChild(sidebox)
 
                 function showpost(source) {
-                    console.log('its going')
                     document.getElementById('zeromdelement').remove()
                     newmd = document.createElement('zero-md')
                     newmd.id = 'zeromdelement'
@@ -56,7 +55,7 @@
                 <!-- Load the element definition -->
                 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
           
-                <zero-md id='zeromdelement' style="margin: 10px;">
+                <zero-md id='zeromdelement' style="margin: 10px;" src="../resources/prerendered/cv.md">
                 </zero-md>
 
             </div>
