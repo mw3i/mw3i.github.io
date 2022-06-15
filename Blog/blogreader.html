@@ -13,13 +13,6 @@
                     ['3', './posts/3.md'],
                 ]
 
-                document.getElementById('zeromdelement').remove()
-                newmd = document.createElement('zero-md')
-                newmd.id = 'zeromdelement'
-                newmd.src = '../resources/prerendered/cv.md'
-                newmd.style = "margin: 10px;"
-                document.getElementById('blogpost').appendChild(newmd)
-
                 sidebox = document.createElement('div')
                 sidebox.id = 'sidebox'
                 sidebox.style = 'background-color: rgba(200,200,200,.6); text-align: center; margin: 0px; width: 20vw; height: 100%; overflow: scroll;'
@@ -29,14 +22,7 @@
                 document.getElementById('divmain').appendChild(sidebox)
 
                 function showpost(source) {
-                    document.getElementById('zeromdelement').remove()
-                    newmd = document.createElement('zero-md')
-                    newmd.id = 'zeromdelement'
-                    newmd.src = source
-                    newmd.style = "margin: 10px;"
-                    document.getElementById('blogpost').appendChild(newmd)
-                    // document.getElementById('zeromdelement').src = source
-
+                    document.getElementById('zeromdelement').src = '../resources/prerendered/cv.md'
                 }
 
                 for (l of links) {
@@ -63,8 +49,8 @@
                 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
           
                 <!-- <zero-md id='zeromdelement' style="margin: 10px;" src="../resources/prerendered/cv.md"> -->
-                <!-- <zero-md id='zeromdelement' style="margin: 10px;" src="./posts/1.md"> -->
-                <!-- </zero-md> -->
+                <zero-md id='zeromdelement' style="margin: 10px;" src="./posts/1.md">
+                </zero-md>
 
             </div>
 
