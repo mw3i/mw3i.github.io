@@ -4,7 +4,7 @@
 | ---                     | ---                   | ---                   | ---                           | ---                 | ---           |
 | [Education](#Education) | [Research](#Research) | [Teaching](#Teaching) | [Publications](#Publications) | [Posters](#Posters) | [Misc](#Misc) |
 
-Links: matw7r --at-- gmail --dot-- com | [google scholar](https://scholar.google.com/citations?user=K2aW64EAAAAJ&hl=en&oi=sra) | [open science foundation](https://osf.io/sw4z6/) | [personal website](https://mw3i.github.io/) | [github](https://github.com/mw3i)
+Links: matw7r --at-- gmail --dot-- com | [google scholar](https://scholar.google.com/citations?hl=en&user=K2aW64EAAAAJ&view_op=list_works) | [open science foundation](https://osf.io/sw4z6/) | [personal website](https://mw3i.github.io/) | [github](https://github.com/mwetzel7r)
 
 # Education
 
@@ -73,5 +73,4 @@ My research interests focus on testing models of human cognition and behavior --
 - **Wetzel, M.**, & Kurtz, K. (2018). *Investigating Modifications to the DIVergent Autoencoder (DIVA) Model of Human Categorization.* Psychonomics [ [link](https://drive.google.com/file/d/1-pNCFEeFs-SK06EwcnzwHLZPCOuMTJ9l/view?usp=sharing) ]
 - **Wetzel, M.**, & Kurtz, K. (2018). *Generalizing an Alternating Category Structure.* Cognitive Science Society [ [link](https://cogsci.mindmodeling.org/2018/papers/0712/0712.pdf) ]
 - **Wetzel, M.**, Tuft, S.E., Krestar, M.L., & McLennan, C.T. (2013). *Using Change Deafness to Investigate Attentional Allocation During Spoken Word Recognition.* College of Sciences and Health Professions Research Day, Cleveland State University
-
 
