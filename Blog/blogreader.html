@@ -22,12 +22,12 @@
             document.body.appendChild(sidebox)
 
             function showpost(source) {
-                // document.getElementById('zeromdelement').remove()
-                // newmd = document.createElement('zero-md')
-                // newmd.id = 'zeromdelement'
-                // newmd.src = source
-                // document.getElementById('blogpost').appendChild(newmd)
-                document.getElementById('zeromdelement').src = source
+                document.getElementById('zeromdelement').remove()
+                newmd = document.createElement('zero-md')
+                newmd.id = 'zeromdelement'
+                newmd.src = source
+                document.getElementById('blogpost').appendChild(newmd)
+                // document.getElementById('zeromdelement').src = source
 
             }
 
