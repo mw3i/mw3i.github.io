@@ -22,7 +22,17 @@
                 document.getElementById('divmain').appendChild(sidebox)
 
                 function showpost(source) {
-                    document.getElementById('zeromdelement').src = '../resources/prerendered/cv.md'
+                    document.getElementById('zeromdelement').remove()
+                    // newmd = document.createElement('zero-md')
+                    newmd = document.createElement('p')
+                    // newmd.id = 'zeromdelement'
+                    // newmd.src = source
+                    // newmd.style = "margin: 10px;"
+                    newmd.innerHTML = 'jhey it worked'
+
+                    document.getElementById('blogpost').appendChild(newmd)
+                    // document.getElementById('zeromdelement').src = source
+
                 }
 
                 for (l of links) {
