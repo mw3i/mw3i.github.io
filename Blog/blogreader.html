@@ -23,11 +23,11 @@
 
                 function showpost(source) {
                     document.getElementById('frame').remove()
-                    newmd = document.createElement('iframe')
-                    newmd.id = 'frame'
-                    newmd.src = source
-                    newmd.style = "margin: 10px;"
-                    document.getElementById('blogpost').appendChild(newmd)
+                    newpost = document.createElement('iframe')
+                    newpost.id = 'frame'
+                    newpost.src = source
+                    newpost.style = "margin: 10px;"
+                    document.getElementById('blogpost').appendChild(newpost)
                     // document.getElementById('zeromdelement').src = source
 
                 }
@@ -44,7 +44,7 @@
             </script>
 
             <div id='blogpost' style="height: 100%; background: rgba(255,255,255,.7); width: 100%; overflow: scroll; margin: 0px;">
-                <iframe src="link.html" width="100%" height="300"></iframe>
+                <iframe id="frame" src="posts/1.html"></iframe>
             </div>
 
         </div>
