@@ -11,7 +11,7 @@ function swarm() {
         ['point speed', [1, 1000, 500]], // <-- min, max, default
         ['point focus', [1, 20, 7]], 
         ['point momentum', [.001, 1, .1]],
-        ['social pressure', [.001, .2, .01]],
+        ['social pressure', [.00001, .2, .01]],
         ['noise', [1, 30, 10]],
     ]
 
@@ -39,35 +39,45 @@ function swarm() {
     ctx.canvas.width  = window.innerWidth - 20;
     ctx.canvas.height = window.innerHeight - 20;
 
-    var o_canvas = oCanvas.create({
+    o_canvas = oCanvas.create({
       canvas: "#particle_space",
       background: s['canvas_background'],
     });
 
-    nodes = []
-    momentums_x = []
-    momentums_y = []
-    node_positions_x = []
-    node_positions_y = []
-    for (i=0; i < s['num_nodes']; i++) {
-      pos_x = window.innerWidth / 2 + Math.random() * 600 - Math.random() * 600
-      pos_y = window.innerHeight / 2 + Math.random() * 600 - Math.random() * 600
+    function build() {
 
-      var node = o_canvas.display.arc({
-        x: pos_x,
-        y: pos_y,
-        radius: s['node_size'],
-        start: 360,
-        fill: s['node_fill_color'],
-      })
+      nodes = []
+      momentums_x = []
+      momentums_y = []
+      node_positions_x = []
+      node_positions_y = []
+      for (i=0; i < s['num_nodes']; i++) {
+        pos_x = window.innerWidth / 2 + Math.random() * 600 - Math.random() * 600
+        pos_y = window.innerHeight / 2 + Math.random() * 600 - Math.random() * 600
 
-      nodes = [...nodes, node] // <-- add node to nodes list
-      node_positions_x = [...node_positions_x, pos_x]
-      node_positions_y = [...node_positions_y, pos_y]
+        var node = o_canvas.display.arc({
+          x: pos_x,
+          y: pos_y,
+          radius: s['node_size'],
+          start: 360,
+          fill: s['node_fill_color'],
+        })
 
-      momentums_x = [...momentums_x, 0]
-      momentums_y = [...momentums_y, 0]
-      o_canvas.addChild(node);
+        nodes = [...nodes, node] // <-- add node to nodes list
+        node_positions_x = [...node_positions_x, pos_x]
+        node_positions_y = [...node_positions_y, pos_y]
+
+        momentums_x = [...momentums_x, 0]
+        momentums_y = [...momentums_y, 0]
+        o_canvas.addChild(node);
+      }
+    }
+    build()
+
+    function destroy() {
+      for (node of nodes) {
+        o_canvas.removeChild(node)
+      }
     }
 
     x = window.innerWidth / 2
@@ -146,7 +156,6 @@ function swarm() {
       } else if (sd.style.display == 'block') {
         sd.style.display = 'none'
       }
-      console.log('pressed')
     }
     opensettings.style = 'margin-right: 20px; font-size: 30px; color: white; font-weight: bold; white; background: black; outline: none; border-width: 0px;  border-radius: 100%; width: 60px; height: 60px;'
     opensettings.innerHTML = '<'
@@ -156,10 +165,21 @@ function swarm() {
     settingsdiv.id = 'settingsdiv'
     settingsdiv.style = 'background-color: rgba(0,0,0,.1); text-align: center; margin: 0px; width: 20vw; height: 100%; right: 0px; top: 0px; overflow: scroll; display: none; transition: opacity 1s ease-out;'
 
+
+    resetbtn = document.createElement('button')
+    resetbtn.onclick = function () {
+      destroy()
+      build()
+    }
+    resetbtn.style = 'text-align: center; font-size: 30px; color: white; font-weight: bold; white; background: black; outline: none; border-width: 0px;  border-radius: 20px; width: 80%; height: auto; margin-top: 35%; padding: 10px'
+    resetbtn.innerHTML = 'reset'
+    settingsdiv.appendChild(resetbtn)
+
+    // add sliders
     for (param of p) {
         label = document.createElement('p')
         label.innerHTML = param[0]
-        if (param == p[0]) {label.style = 'padding-top: 35%;'} else {label.style = 'padding-top: 15%;'}
+        label.style = 'padding-top: 15%;'
         settingsdiv.appendChild(label)
 
         slider = document.createElement('input')
@@ -167,7 +187,6 @@ function swarm() {
         slider.min = param[1][0]
         slider.max = param[1][1]
         slider.value = s[param[0]]
-        console.log(s[param[0]])
         slider.step = (param[1][1] - param[1][0]) / 100
         slider.parameterID = param[0]
         slider.oninput = function () {
@@ -176,6 +195,7 @@ function swarm() {
         settingsdiv.appendChild(slider)
 
     }
+    slider.style = 'margin-bottom: 40%'
     settingsparent.appendChild(settingsdiv)
 
     document.body.appendChild(settingsparent)
