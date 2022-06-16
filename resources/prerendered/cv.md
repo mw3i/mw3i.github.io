@@ -1,19 +1,21 @@
 # Matt Wetzel - CV
 
+<!-- 
 |                         |                       |                       |                               |                     |               |
 | ---                     | ---                   | ---                   | ---                           | ---                 | ---           |
 | [Education](#Education) | [Research](#Research) | [Teaching](#Teaching) | [Publications](#Publications) | [Posters](#Posters) | [Misc](#Misc) |
+-->
 
 Links: matw7r --at-- gmail --dot-- com | [google scholar](https://scholar.google.com/citations?hl=en&user=K2aW64EAAAAJ&view_op=list_works) | [open science foundation](https://osf.io/sw4z6/) | [personal website](https://mw3i.github.io/) | [github](https://github.com/mwetzel7r)
 
 # Education
 
-- **Ph.D. (in progress...) | [SUNY Binghamton University](https://www.binghamton.edu/)** [2016 - Present]
+- **Ph.D. | [Binghamton University (SUNY)](https://www.binghamton.edu/)** [2016 - 2022]
   - **Advisor**: [Dr. Kenneth J. Kurtz](https://www.binghamton.edu/psychology/people/profile.html?id=kkurtz)
-- **M.S. |  [SUNY Binghamton University](https://www.binghamton.edu/)** [2020]
+  - **Dissertation**: [Human Learning and Generalization of Concepts Defined by Featural Relations]()
+- **M.S. |  [Binghamton University (SUNY)](https://www.binghamton.edu/)** [2016-2020]
   - **Advisor**: Dr. Kenneth J. Kurtz
   - **Master's Thesis**: [Task-Relevant Shifts in Category Representations](https://drive.google.com/file/d/1kBu3mp7IgtylbkbkfDNhFbQxp1kMdx9U/view?usp=sharing)
-  - **Dissertation**: [Human Learning and Generalization of Concepts defined by Featural Relations]()
 - **B.A. | [Cleveland State University](https://www.csuohio.edu/)** [2012 - 2014]
   - **Advisor**: [Dr. Conor T. M<sup>c</sup>Lennan](http://facultyprofile.csuohio.edu/csufacultyprofile/detail.cfm?FacultyID=C_MCLENNAN)
   - **Honors Thesis**: Using Change Deafness to Investigate Attentional Allocation During Spoken Word Recognition
@@ -27,7 +29,7 @@ My research interests focus on testing models of human cognition and behavior --
 
 ## Experience
 
-- **[Learning and Representations in Cognition Lab](http://kurtzlab.psychology.binghamton.edu/)** | SUNY Binghamton University [2016-Present]
+- **[Learning and Representations in Cognition Lab](http://kurtzlab.psychology.binghamton.edu/)** | Binghamton University (SUNY) [2016-2022]
   - **Principal Investigator**: Dr. Kenneth J. Kurtz
 
 - **[Language Research Laboratory](https://sciences.csuohio.edu/language-research-lab/language-research-laboratory)** | Cleveland State University [2013-2016]
@@ -35,7 +37,7 @@ My research interests focus on testing models of human cognition and behavior --
 
 ## Publications
 
-- Kurtz, K. J., & **Wetzel, M. T.** (2021). On the Generalization of Simple Alternating Category Structures. _Cognitive science_, 45(4), e12972.
+- Kurtz, K. J., & **Wetzel, M. T.** (2021). On the generalization of simple alternating category structures. _Cognitive Science_, 45(4), e12972.
 - Incera, S., Shah, A. P., McLennan, C. T., & **Wetzel, M. T.** (2017). Sentence context influences the subjective perception of foreign accents. _Acta Psychologica, 172_, 71-76  [ [link](https://www.sciencedirect.com/science/article/pii/S0001691816303675) ]
 
 <!-- ## Presentations -->
@@ -44,11 +46,12 @@ My research interests focus on testing models of human cognition and behavior --
 
 # Teaching
 
-|                |                       |             |                        |
-| ---            | ---                   | ---         | ---                    |
-| **Cognition**  | Le Moyne University   | Spring 2022 | _Instructor of Record_ |
-| **Statistics** | Binghamton University | Summer 2021 | _Instructor of Record_ |
-| **Perception** | Binghamton University | Summer 2018 | _Instructor of Record_ |
+|                      |                       |             |                                  |
+| ---                  | ---                   | ---         | ---                              |
+| **Cognition**        | Le Moyne College      | Spring 2022 | _(Adjunct) Instructor of Record_ |
+| **Research Methods** | Le Moyne College      | Spring 2022 | _(Adjunct) Instructor of Record_ |
+| **Statistics**       | Binghamton University | Summer 2021 | _Instructor of Record_           |
+| **Perception**       | Binghamton University | Summer 2018 | _Instructor of Record_           |
 
 ---
 
@@ -64,11 +67,10 @@ My research interests focus on testing models of human cognition and behavior --
 - Psychonomics Society [2018-2021]
 - Cognitive Science Society [2016-2018; 2020-2022]  
 - Association for Psychological Science (APS) [2014]
-- Psi Chi (@ Cleveland State University) [2013-2014]
+- Psi Chi (@ Cleveland State University)
 
 ## Poster Presentations
 
-- **Wetzel, M.**, & Kurtz, K. (2020). _Test_ Cognitive Science Society [ link ]
 - **Wetzel, M.**, & Kurtz, K. (2019). *The Impact of Category Learning on Item Similarity: Effects of Learning Mode and Category Structure* Psychonomics [ [link](https://drive.google.com/file/d/1-pNCFEeFs-SK06EwcnzwHLZPCOuMTJ9l/view?usp=sharing) ]
 - **Wetzel, M.**, & Kurtz, K. (2018). *Investigating Modifications to the DIVergent Autoencoder (DIVA) Model of Human Categorization.* Psychonomics [ [link](https://drive.google.com/file/d/1-pNCFEeFs-SK06EwcnzwHLZPCOuMTJ9l/view?usp=sharing) ]
 - **Wetzel, M.**, & Kurtz, K. (2018). *Generalizing an Alternating Category Structure.* Cognitive Science Society [ [link](https://cogsci.mindmodeling.org/2018/papers/0712/0712.pdf) ]
