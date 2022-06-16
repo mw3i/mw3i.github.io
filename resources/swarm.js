@@ -157,7 +157,7 @@ function swarm() {
         sd.style.display = 'none'
       }
     }
-    opensettings.style = 'margin-right: 20px; font-size: 30px; color: white; font-weight: bold; white; background: black; outline: none; border-width: 0px;  border-radius: 100%; width: 60px; height: 60px;'
+    opensettings.style = 'margin-right: 20px; font-size: 30px; color: white; font-weight: bold; white; background: rgba(0,0,0,.8); outline: none; border-width: 0px;  border-radius: 100%; width: 60px; height: 60px;'
     opensettings.innerHTML = '<'
     settingsparent.appendChild(opensettings)
 
