@@ -200,4 +200,10 @@ function swarm() {
 
     document.body.appendChild(settingsparent)
 
+    shoutoutdiv = document.createElement('div')
+    shoutoutdiv.style = "position: absolute; right: 10px; color: rgba(0,0,0,.3)"
+    shoutout = document.createElement('p')
+    shoutout.innerHTML = "This uses the javascript library: <a href='http:/ocanvas.org/' style = 'color:#39c;'>oCanvas</a>"
+    shoutoutdiv.appendChild(shoutout)
+    document.body.appendChild(shoutoutdiv)
 }
