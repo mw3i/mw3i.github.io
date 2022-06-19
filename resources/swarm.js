@@ -153,8 +153,10 @@ function swarm() {
       let sd = document.getElementById('settingsdiv')
       if (sd.style.display == 'none') {
         sd.style.display = 'block'
+        opensettings.innerHTML = '>'
       } else if (sd.style.display == 'block') {
         sd.style.display = 'none'
+        opensettings.innerHTML = '<'
       }
     }
     opensettings.style = 'margin-right: 20px; font-size: 30px; color: white; font-weight: bold; white; background: rgba(0,0,0,.8); outline: none; border-width: 0px;  border-radius: 100%; width: 60px; height: 60px;'
