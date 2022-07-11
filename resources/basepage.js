@@ -32,7 +32,7 @@ function basepage(title, preamble, links) {
       bottombox.appendChild(lnkref)
     }
 
-    for (l of [['home', 'https://mw3i.github.io'],['resume/cv', 'https://mw3i.github.io/resources/resume-cv.html'],['github','https://github.com/mwetzel7r']].reverse()) {
+    for (l of [['home', 'https://mw3i.github.io'],['resume/cv', 'https://mw3i.github.io/resources/resume.md'],['github','https://github.com/mwetzel7r']].reverse()) {
       lnkref = document.createElement('a')
       lnkref.href = l[1]
       lnk = document.createElement('div')
