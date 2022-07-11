@@ -9,14 +9,12 @@ last update: 2022-7-11s
 
 **website**: [mw3i.github.io](https://mw3i.github.io/)
 
-**links**: [google scholar](https://scholar.google.com/citations?hl=en&user=K2aW64EAAAAJ&view_op=list_works) | [open science foundation](https://osf.io/sw4z6/) | [github](https://github.com/mwetzel7r)
+**links**: [google scholar](https://scholar.google.com/citations?hl=en&user=K2aW64EAAAAJ&view_op=list_works) -- [open science foundation](https://osf.io/sw4z6/) -- [github](https://github.com/mwetzel7r)
 
 
 
 ## Skills/Proficiencies
 
-|                                 |                                                                                                                    |
-| --                              | --                                                                                                                 |
 | **Scripting Languages**         | python (science stack), r, matlab/octave, javascript, bash                                                         |
 | **Machine Learning Frameworks** | autograd, psytorch, tensorflow                                                                                     |
 | **Relational Databases**        | sqlite, mysql                                                                                                      |
@@ -54,7 +52,7 @@ Example Projects:
 - Completed a Master's Thesis on [Categorical Perception](https://search.proquest.com/openview/9acd2f0b1aed947439b0a5a9c8dfc85d/1?pq-origsite=gscholar&cbl=18750&diss=y&casa_token=HmQtSrbj7z0AAAAA:zGGHIEVUM3ELlJXONgcY_mdZBumNL8Ca_ePzHnVz6kRuECnWrZNKvLlr7JnrrxLXAHqmi2PIFw)
 - Published a paper on [rule-based categorization](https://onlinelibrary.wiley.com/doi/pdf/10.1111/cogs.12972)
 - Designed a [flask-based webserver](https://github.com/mwetzel7r/webrunner) for running psychology experiments
-- Designed and taught 3 courses at Binghamton and Le Moyne University
+- Designed and taught 4 courses at Binghamton and Le Moyne University
 - Completed a Dissertation on Relational Category Learning
 
 
@@ -64,7 +62,7 @@ Example Projects:
 
 # CV
 
-My research interests focus on testing models of human cognition and behavior -- with the goal of understanding both the mechanistic and environmental constraints of our cognitive abilities. I'm also interested in how large-scale sources of behavioral data (internet, social media, video games) could be used as a tool for testing psychological theories.
+My research interests focus on testing models of human cognition and behavior -- with the goal of understanding both the mechanistic and environmental constraints of our cognitive abilities. I'm also interested in how large-scale sources of behavioral data (internet, social media, video games) could be used as tools for testing psychological theories.
 
 
 
