@@ -49,6 +49,7 @@ Example Projects:
 
 ### 2016-2022: Ph.D @ Binghamton University
 
+- Conducted dozens of human behavioral experiments -- from design to statstical analysis
 - Completed a Master's Thesis on [Categorical Perception](https://search.proquest.com/openview/9acd2f0b1aed947439b0a5a9c8dfc85d/1?pq-origsite=gscholar&cbl=18750&diss=y&casa_token=HmQtSrbj7z0AAAAA:zGGHIEVUM3ELlJXONgcY_mdZBumNL8Ca_ePzHnVz6kRuECnWrZNKvLlr7JnrrxLXAHqmi2PIFw)
 - Published a paper on [rule-based categorization](https://onlinelibrary.wiley.com/doi/pdf/10.1111/cogs.12972)
 - Designed a [flask-based webserver](https://github.com/mwetzel7r/webrunner) for running psychology experiments
