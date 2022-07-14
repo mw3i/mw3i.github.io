@@ -1,28 +1,42 @@
 ---
-title: Matt Wetzel - CV
+title: CV
+author: Matt Wetzel
 last update: 2022-7-11
 ---
 
 <link rel="stylesheet" href="latex.css">
 
-# CV
+# Matt Wetzel • matw7r -at- gmail -dot- com  • [google scholar](https://scholar.google.com/citations?hl=en&user=K2aW64EAAAAJ&view_op=list_works) • [open science foundation](https://osf.io/sw4z6/)
 
 My research interests focus on testing models of human cognition and behavior -- with the goal of understanding both the mechanistic and environmental constraints of our cognitive abilities. I'm also interested in how large-scale sources of behavioral data (internet, social media, video games) could be used as tools for testing psychological theories.
 
 
+# Education
 
-## Education
+## **Ph.D.**
 
-- **Ph.D.** @[Binghamton University (SUNY)](https://www.binghamton.edu/) [2016 - 2022]
+### _2016 - 2022_ @ [Binghamton University (SUNY)](https://www.binghamton.edu/)
+
   - **Advisor**: [Dr. Kenneth J. Kurtz](https://www.binghamton.edu/psychology/people/profile.html?id=kkurtz)
   - **Dissertation**: [Human Learning and Generalization of Concepts Defined by Featural Relations](https://mw3i.github.io/resources/papers/dissertation.pdf)
-- **M.S.** @[Binghamton University (SUNY)](https://www.binghamton.edu/) [2016-2020]
+
+## **M.S.**
+
+### _2016-2020_ @ Binghamton University (SUNY)
+
   - **Advisor**: Dr. Kenneth J. Kurtz
   - **Master's Thesis**: [Task-Relevant Shifts in Category Representations](https://search.proquest.com/openview/9acd2f0b1aed947439b0a5a9c8dfc85d/1?pq-origsite=gscholar&cbl=18750&diss=y&casa_token=HmQtSrbj7z0AAAAA:zGGHIEVUM3ELlJXONgcY_mdZBumNL8Ca_ePzHnVz6kRuECnWrZNKvLlr7JnrrxLXAHqmi2PIFw)
-- **B.A.** @[Cleveland State University](https://www.csuohio.edu/) [2012 - 2014]
+
+## **B.A.**
+
+### _2012 - 2014_ @ [Cleveland State University](https://www.csuohio.edu/)
+
   - **Advisor**: [Dr. Conor T. M<sup>c</sup>Lennan](http://facultyprofile.csuohio.edu/csufacultyprofile/detail.cfm?FacultyID=C_MCLENNAN)
   - **Honor's Thesis**: Using Change Deafness to Investigate Attentional Allocation During Spoken Word Recognition
-- **A.S. & A.A.** @[Lakeland Community College](https://www.lakelandcc.edu/) [2010 - 2012]
+
+## **A.S. & A.A.**
+
+### _2010 - 2012_ @ [Lakeland Community College](https://www.lakelandcc.edu/)
 
 
 
