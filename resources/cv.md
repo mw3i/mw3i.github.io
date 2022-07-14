@@ -1,64 +1,7 @@
 ---
-title: Matt Wetzel - Resume/CV
-last update: 2022-7-11s
+title: Matt Wetzel - CV
+last update: 2022-7-11
 ---
-
-# Matt Wetzel -- Resume
-
-**email**: matw7r --at-- gmail --dot-- com
-
-**website**: [mw3i.github.io](https://mw3i.github.io/)
-
-**links**: [google scholar](https://scholar.google.com/citations?hl=en&user=K2aW64EAAAAJ&view_op=list_works) -- [open science foundation](https://osf.io/sw4z6/) -- [github](https://github.com/mwetzel7r)
-
-
-
-## Skills/Proficiencies
-
-| **Scripting Languages**         | python (science stack), r, matlab/octave, javascript, bash                                                         |
-| **Machine Learning Frameworks** | autograd, psytorch, tensorflow                                                                                     |
-| **Relational Databases**        | sqlite, mysql                                                                                                      |
-| **Data Visualization**          | matplotlib, tableau                                                                                                |
-| **Web Coding**                  | html/js/css, flask                                                                                                 |
-| **Statistics**                  | Hypothesis Testing (frequentists, bayesian), black box models (neural nets, svms, mixture models, computer vision) |
-
-
-Example Projects:
-
-- [Online Psych Experiment Server](https://github.com/mwetzel7r/webrunner)
-- [Computational Psych Models in Numpy](https://github.com/mwetzel7r/cogmods)
-- [Dissertation](https://osf.io/nkp46/)
-
-
-
-## Education and Work History
-
-### 2010-2014: Undergraduate @ Lakeland CC and Cleveland State
-
-- Completed an Associates of Arts and Science at Lakeland Community College
-- Completed an undergraduate degree in Psychology at Cleveland State
-  - Member of CSU's Psi Chi chapter
-
-
-### 2014-2016: Research and Labor
-
-- Volunteered for 2 years as a Research Assistant in the [Language Research Laboratory](https://sciences.csuohio.edu/language-research-lab/language-research-laboratory) @ Cleveland State.
-  - Designed and carried out psych experiments with human subjects
-
-- Worked as a garbage collector, landscaper, janitor, city service worker, painter, roofer, carpenter, and dish washer.
-
-### 2016-2022: Ph.D @ Binghamton University
-
-- Conducted dozens of human behavioral experiments -- from design to statstical analysis
-- Completed a Master's Thesis on [Categorical Perception](https://search.proquest.com/openview/9acd2f0b1aed947439b0a5a9c8dfc85d/1?pq-origsite=gscholar&cbl=18750&diss=y&casa_token=HmQtSrbj7z0AAAAA:zGGHIEVUM3ELlJXONgcY_mdZBumNL8Ca_ePzHnVz6kRuECnWrZNKvLlr7JnrrxLXAHqmi2PIFw)
-- Published a paper on [rule-based categorization](https://onlinelibrary.wiley.com/doi/pdf/10.1111/cogs.12972)
-- Designed a [flask-based webserver](https://github.com/mwetzel7r/webrunner) for running psychology experiments
-- Designed and taught 4 courses at Binghamton and Le Moyne University
-- Completed a Dissertation on Relational Category Learning
-
-
----
-
 
 
 # CV
@@ -111,8 +54,8 @@ My research interests focus on testing models of human cognition and behavior --
 
 ## Honors/Awards
 
-- [2017] **Professional Development Award.** | SUNY Binghamton University. Binghamton, NY. | 400$
-- [2014] **Outstanding Undergraduate Psychology Student Award.** | Cleveland State University
+- [2017] **Professional Development Award.** -- SUNY Binghamton University. Binghamton, NY. -- 400$
+- [2014] **Outstanding Undergraduate Psychology Student Award.** -- Cleveland State University
 
 
 
