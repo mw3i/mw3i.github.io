@@ -22,7 +22,7 @@ My research interests focus on testing models of human cognition and behavior --
   - **Advisor**: [Dr. Kenneth J. Kurtz](https://www.binghamton.edu/psychology/people/profile.html?id=kkurtz)
   - **Dissertation**: [Human Learning and Generalization of Concepts Defined by Featural Relations](https://mw3i.github.io/resources/papers/dissertation.pdf)
 
-\
+
 
 ## **M.S.**
 
@@ -31,7 +31,7 @@ My research interests focus on testing models of human cognition and behavior --
   - **Advisor**: Dr. Kenneth J. Kurtz
   - **Master's Thesis**: [Task-Relevant Shifts in Category Representations](https://search.proquest.com/openview/9acd2f0b1aed947439b0a5a9c8dfc85d/1?pq-origsite=gscholar&cbl=18750&diss=y&casa_token=HmQtSrbj7z0AAAAA:zGGHIEVUM3ELlJXONgcY_mdZBumNL8Ca_ePzHnVz6kRuECnWrZNKvLlr7JnrrxLXAHqmi2PIFw)
 
-\
+
 
 ## **B.A.**
 
@@ -40,13 +40,13 @@ My research interests focus on testing models of human cognition and behavior --
   - **Advisor**: [Dr. Conor T. M<sup>c</sup>Lennan](http://facultyprofile.csuohio.edu/csufacultyprofile/detail.cfm?FacultyID=C_MCLENNAN)
   - **Honor's Thesis**: Using Change Deafness to Investigate Attentional Allocation During Spoken Word Recognition
 
-\
+
 
 ## **A.S. & A.A.**
 
 ### _2010 - 2012_ @ [Lakeland Community College](https://www.lakelandcc.edu/)
 
-\
+
 
 # Research Experience
 
@@ -55,14 +55,14 @@ My research interests focus on testing models of human cognition and behavior --
 - **[Language Research Laboratory](https://sciences.csuohio.edu/language-research-lab/language-research-laboratory)** @[Cleveland State University](https://www.csuohio.edu/) [2013-2016]
   - **Principal Investigator**: Dr. Conor T. McLennan
 
-\
+
 
 # Publications
 
 - Kurtz, K. J., & **Wetzel, M. T.** (2021). On the generalization of simple alternating category structures. _Cognitive Science_, 45(4), e12972. [ [link](https://onlinelibrary.wiley.com/doi/pdf/10.1111/cogs.12972) ]
 - Incera, S., Shah, A. P., McLennan, C. T., & **Wetzel, M. T.** (2017). Sentence context influences the subjective perception of foreign accents. _Acta Psychologica, 172_, 71-76  [ [link](https://www.sciencedirect.com/science/article/pii/S0001691816303675) ]
 
-\
+
 
 # Teaching
 
@@ -73,14 +73,14 @@ My research interests focus on testing models of human cognition and behavior --
 | Summer 2021 | **Statistics**       | Binghamton University | _Instructor of Record_           |
 | Summer 2018 | **Perception**       | Binghamton University | _Instructor of Record_           |
 
-\
+
 
 # Honors/Awards
 
 - [2017] **Professional Development Award.** -- SUNY Binghamton University. Binghamton, NY. -- 400$
 - [2014] **Outstanding Undergraduate Psychology Student Award.** -- Cleveland State University
 
-\
+
 
 # Membership in Professional Organizations
 
@@ -89,7 +89,7 @@ My research interests focus on testing models of human cognition and behavior --
 - Association for Psychological Science (APS) [2014]
 - Psi Chi (@ Cleveland State University)
 
-\
+
 
 # Presentations
 
