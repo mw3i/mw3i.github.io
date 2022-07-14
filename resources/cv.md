@@ -1,10 +1,9 @@
-<link rel="stylesheet" href="latex.css">
-
 ---
 title: Matt Wetzel - CV
 last update: 2022-7-11
 ---
 
+<link rel="stylesheet" href="latex.css">
 
 # CV
 
