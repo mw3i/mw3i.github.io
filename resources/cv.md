@@ -10,7 +10,7 @@ last update: 2022-7-11
 
 ## matw7r -at- gmail -dot- com  • [google scholar](https://scholar.google.com/citations?hl=en&user=K2aW64EAAAAJ&view_op=list_works) • [open science foundation](https://osf.io/sw4z6/)
 
-My research interests focus on testing models of human cognition and behavior -- with the goal of understanding both the mechanistic and environmental constraints of our cognitive abilities. I'm also interested in how large-scale sources of behavioral data (internet, social media, video games) could be used as tools for testing psychological theories.
+My research interests focus on testing models of human cognition and behavior -- with the goal of understanding both the mechanistic and environmental constraints of our cognitive abilities. In particular, I'm very interested in the way information is structured in the human mind -- especially information best described by graphs / networks. I'm also interested in how large-scale sources of behavioral data (internet, social media, video games) could be used as tools for testing psychological theories.
 
 
 # Education
