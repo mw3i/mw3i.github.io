@@ -1,5 +1,5 @@
 <!-- <link rel="stylesheet" href="latex.css"> -->
-<link rel="stylesheet" href="https://latex.now.sh/lang/es.css" />
+<link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
 
 last updated: 2022-7-18
 
