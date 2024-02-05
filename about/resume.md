@@ -49,12 +49,12 @@ mw3i at gmail
 
 <div class='row ps-5 pt-5'>
     <div class='m-0 col-12 display-6 text-secondary'>2022</div>
-    <div class='m-0 col-12 display-6'>Adjunct Professor</div>
+    <div class='m-0 col-12 display-6'>Adjunct Professor @ Le Moyne College</div>
 </div>
 
 <div class='row ps-5 pt-5'>
     <div class='m-0 col-12 display-6 text-secondary'>2016-2022</div>
-    <div class='m-0 col-12 display-6'>Graduate Teaching Assistant</div>
+    <div class='m-0 col-12 display-6'>Graduate Teaching Assistant @ Binghamton University</div>
 </div>
 
 # Education

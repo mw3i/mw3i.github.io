@@ -153,11 +153,11 @@ function destroy() {
 </button>
 <div class="offcanvas offcanvas-end bg-dark text-white h-100" style='--bs-bg-opacity: .5; min-width: 300px' tabindex="-1" id="offcanvasSwarmControls" aria-labelledby="offcanvasSwarmControlsLabel" data-bs-scroll="true">
     <div class="offcanvas-header">
-        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white ms-auto p-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body pb-4 col-12 col-md-10 mx-auto h-100 overflow-y-auto">
         <div class='w-100 d-flex flex-column px-3 justify-content-center' id='offcanvasSwarmControlsPanel'>
-            <div id='resetButton' class='btn bg-light text-dark rounded-3 mx-3 mb-5'>reset swarm</div>
+            <div id='resetButton' class='btn bg-dark text-white rounded-3 mx-3 mb-5'>reset swarm</div>
             <!-- settings go here -->
         </div>
         <div class='px-2 w-100 text-left py-4'>Built using the very useful <a href='https://ocanvas.org/' target='blank'>oCanvas</a> library</div>
@@ -195,7 +195,6 @@ for (param of p) {
     slider.oninput = function () {
         s[this.parameterID] = this.value
     }
-    slider.classList.add('form-range')
     slider.classList.add('mb-3')
     paramDiv.appendChild(slider)
 
