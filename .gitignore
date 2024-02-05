@@ -1,0 +1,17 @@
+# Bundler cache
+.bundle
+vendor
+Gemfile.lock
+
+# Jekyll cache
+.jekyll-cache
+_site
+
+# RubyGems
+*.gem
+
+# user
+_/
+.notes
+blog/posts/.in-progress/*
+.sublime/

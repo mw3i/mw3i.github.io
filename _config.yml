@@ -1,0 +1,21 @@
+title: matt w
+email: 
+description: 
+baseurl: "" 
+url: "" 
+twitter_username: 
+github_username:  
+
+# Build settings
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Gems
+gems: [jekyll-mermaid]
+
+exclude:
+#  - feed.xml
