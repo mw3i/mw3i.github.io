@@ -1,3 +1,4 @@
 .*
 !.gitignore
 !.eleventy.js
+!.github/
