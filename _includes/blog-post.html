@@ -61,6 +61,7 @@ input:checked + .slider:before {
         column-width: 100\vw !important;
         max-height: none !important;
         padding: 30px !important;
+        margin-right: 0px !important;
     }
 }
 </style>
@@ -76,8 +77,8 @@ input:checked + .slider:before {
     </div>
     <div :class="isToggled ? 'container ml-0 mr-0' : 'container is-max-tablet'" :style="isToggled ? 'width: 100vw;' : 'overflow-x: auto !important;'" class="">
         <!-- Container to handle overflow -->
-        <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? 'px-5' : 'pb-6'">
-            <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
+        <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? {%comment%}'px-5'{%endcomment%}'' : 'pb-6'">
+            <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px; margin-right: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
                 <!-- Title of the blog post -->
                 <h1 class="title is-2 has-text-weight-bold">{{ title }}</h1>
                 <!-- Date of the blog post -->

@@ -3,6 +3,7 @@ const path = require('path');
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/-/");
+    eleventyConfig.addPassthroughCopy("./src/favicon.ico");
     
     eleventyConfig.addPassthroughCopy("src/blog/**/*.jpg");
     eleventyConfig.addPassthroughCopy("src/blog/**/*.jpeg");
