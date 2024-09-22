@@ -1,0 +1,104 @@
+---
+layout: default.html
+---
+<style>
+    .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4258ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.column-container h1,
+.column-container h2,
+.column-container h3,
+.column-container h4,
+.column-container h5,
+.column-container h6 {
+    break-inside: avoid; /* Prevent headers from breaking */
+}
+
+@media screen and (max-width: 768px) { /* Bulma's mobile breakpoint */
+    .column-container {
+        column-width: 100\vw !important;
+        max-height: none !important;
+        padding: 30px !important;
+    }
+}
+</style>
+<!-- this next part could have probably been accomplished with minimal alpine and just 1 css class (column-mode-div), but i nudged chatgpt to use alpine and it came up with a somewhat convoluted approach. -->
+<section class="section p-0" x-data="{ isToggled: localStorage.getItem('toggleStatus') === 'true' || false }">
+    <!-- Toggle switch -->
+    <div class="field is-flex is-align-items-center pt-3 pr-6">
+        <label for="switchToggle" class="mr-2">horizontal mode</label>
+        <label class="switch">
+            <input id="switchToggle" type="checkbox" name="switchToggle" class="switch is-rounded" x-model="isToggled" @click="{%comment%}isToggled ? document.querySelector('footer').classList.remove('is-hidden') : document.querySelector('footer').classList.add('is-hidden'); {%endcomment%}localStorage.setItem('toggleStatus', $el.checked);" {%comment%}x-init="isToggled ? document.querySelector('footer').classList.add('is-hidden') : '' "{%endcomment%}>
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div :class="isToggled ? 'container ml-0 mr-0' : 'container is-max-tablet'" :style="isToggled ? 'width: 100vw;' : 'overflow-x: auto !important;'" class="">
+        <!-- Container to handle overflow -->
+        <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? 'px-5' : 'pb-6'">
+            <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
+                <!-- Title of the blog post -->
+                <h1 class="title is-2 has-text-weight-bold">{{ title }}</h1>
+                <!-- Date of the blog post -->
+                <p class="subtitle is-5 has-text-grey-dark mt-3">{{ date | date: '%B %d, %Y' }}</p>
+                <!-- Main content of the blog post -->
+                <br>
+                <div>
+                    {{ content }}
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleSwitch = document.querySelector('.field'); // Select the existing toggle switch field
+    const navbarEnd = document.querySelector('#navbarBasicExample .navbar-end'); // Get the navbar-end element
+
+    if (toggleSwitch && navbarEnd) {
+        navbarEnd.insertAdjacentElement('afterbegin', toggleSwitch); // Move the toggle switch to the start of navbar-end
+    }
+});
+</script>
+<!-- have a "leave a comment" link that points to ./blog/#leaving-comments -->

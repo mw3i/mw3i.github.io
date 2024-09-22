@@ -1,0 +1,18 @@
+---
+layout: default.html
+---
+<style>
+  @media screen and (max-width: 768px) {
+    .p-small {
+      padding: 2rem; /* Equivalent to Bulma's p-6 */
+    }
+  }
+table {
+  display: block;
+  overflow-x: auto;
+}
+
+</style>
+<div class="content container is-max-tablet p-small">
+    {{ content }}
+</div>
