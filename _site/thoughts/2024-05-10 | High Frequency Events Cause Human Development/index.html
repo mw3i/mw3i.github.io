@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>resume</title>
+    <title>High-Frequency Events in Human History</title>
     <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.12/dist/css/uikit.min.css" /> -->
@@ -115,10 +115,10 @@
             </div>
             <div class="navbar-end">
                 <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/things/">/things</a>
-                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/thoughts/">/thoughts</a>
+                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/thoughts/">/thoughts</a>
                 <!-- <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a> -->
                 <div class="is-medium-radius navbar-item has-dropdown is-hoverable is-rounded mx-2">
-                    <a class="is-medium-radius navbar-link  is-active  is-rounded">/about</a>
+                    <a class="is-medium-radius navbar-link  is-rounded">/about</a>
                     <div class="navbar-dropdown is-boxed has-background-dark is-medium-radius">
                         <a class="navbar-item has-background-dark" href="/about/cv/">/cv</a>
                         <a class="navbar-item has-background-dark" href="/about/resume/">/resume</a>
@@ -131,179 +131,142 @@
 <main class='theme-dark' style='z-index: 10;'>
     
     <style>
-  @media screen and (max-width: 768px) {
-    .p-small {
-      padding: 2rem; /* Equivalent to Bulma's p-6 */
+    .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4258ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.column-container h1,
+.column-container h2,
+.column-container h3,
+.column-container h4,
+.column-container h5,
+.column-container h6 {
+    break-inside: avoid; /* Prevent headers from breaking */
+}
+
+@media screen and (max-width: 768px) { /* Bulma's mobile breakpoint */
+    .column-container {
+        column-width: 100\vw !important;
+        max-height: none !important;
+        padding: 30px !important;
+        margin-right: 0px !important;
     }
-  }
-table {
-  display: block;
-  overflow-x: auto;
 }
 
-</style>
-<div class="content container is-max-tablet p-small">
-    <style>
-h1,h2,h3,h4,h5 {
-    padding-top: 30px;
+@media screen and (min-width: 769px) and (max-width: 1224px) {
+    .column-container {
+        column-width: 33vw !important;
+        max-height: 89vh;
+        z-index: 0;
+        overflow-x: auto !important;
+        padding: 40px;
+        column-gap: 40px;
+        margin-right: 40px;
+    }
 }
 </style>
-<hr>
-<h1 class='has-text-primary p-0'>CV</h1>
-Matt Wetzel | Data Scientist | mw3i at gmail
-<p><a href="https://scholar.google.com/citations?hl=en&amp;user=K2aW64EAAAAJ&amp;view_op=list_works">google scholar</a> • <a href="https://osf.io/sw4z6/">osf</a></p>
-<hr>
-<h1>Education</h1>
+<!-- this next part could have probably been accomplished with minimal alpine and just 1 css class (column-mode-div), but i nudged chatgpt to use alpine and it came up with a somewhat convoluted approach. -->
+<section class="section p-0" x-data="{ isToggled: localStorage.getItem('toggleStatus') === 'true' || false }">
+    <!-- Toggle switch -->
+    <div class="field is-flex is-align-items-center pt-3 pr-6">
+        <label for="switchToggle" class="mr-2">horizontal mode</label>
+        <label class="switch">
+            <input id="switchToggle" type="checkbox" name="switchToggle" class="switch is-rounded" x-model="isToggled" @click="localStorage.setItem('toggleStatus', $el.checked);" >
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div :class="isToggled ? 'container ml-0 mr-0' : 'container is-max-tablet'" :style="isToggled ? 'width: 100vw;' : 'overflow-x: auto !important;'" class="">
+        <!-- Container to handle overflow -->
+        <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? '' : 'pb-6'">
+            <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px; margin-right: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
+                <!-- Title of the blog post -->
+                <h1 class="title is-2 has-text-weight-bold">High-Frequency Events in Human History</h1>
+                <!-- Date of the blog post -->
+                <p class="subtitle is-5 has-text-grey-dark mt-3">May 09, 2024</p>
+                <!-- Main content of the blog post -->
+                <br>
+                <div>
+                    <img src='discovery-of-fire.webp'>
+                    <h1>High-Frequency as a Criteria for Evaluating Causes of Human Development</h1>
+<p>I listened to a podcast with <a href="https://en.wikipedia.org/wiki/Richard_Wrangham">Dr. Richard Wrangam</a>, who discussed (with appropriately low epistemic confidence) the idea that the act of sharpening stone tools (which produce sparks) could have been the precursor to the discovery of fire. An explanation like this is obviously difficult to empirically support, as Dr. Wrangam was well aware. But, pointing to stone tool sharpening as a cause of fire discovery does have some characteristics that make it plausible, namely:</p>
+<p>(1) human ancestors likely engaged in the action, and</p>
+<p>(2) it would have been a highly frequent event.</p>
+<p>^ I found point 2 pretty fascinating: that anthropologists use &quot;high frequency&quot; as a benchmark for evaluating the hypothetical cause of some human event (e.g., control of fire). The logic makes a lot of sense. <em>If</em> human development is a noisy, probabilistic chain of events, <em>then</em> high-frequency events are more likely to have been the cause of major developments. Accidentally igniting some twigs (via tool sharpening) might go unnoticed if it only happens once; repeating the event hundreds of times will lead to a discovery that eventually becomes a stable feature of a given culture.</p>
+<h1>Extending the Logic to the Development of Civilization</h1>
+<p>It seems like we can extend this logic to the development of civilization -- in particular:</p>
 <ul>
-<li><strong>PhD</strong>, <em>Cognitive Science</em> @ <a href="https://www.binghamton.edu/">Binghamton University</a> -- 2016-2022
-<ul>
-<li>Dissertation: <a href="/-/docs/dissertation.pdf">Human Learning and Generalization of Concepts Defined by Featural Relations</a></li>
-<li>Advisor: <a href="https://kurtzlab.binghamton.edu/home">Kenneth J. Kurtz</a></li>
+<li>language</li>
+<li>writing</li>
+<li>agriculture</li>
+<li>money</li>
+<li>government</li>
+<li>etc</li>
 </ul>
-</li>
-<li><strong>MS</strong>, <em>Cognitive Science</em> @ <a href="https://www.binghamton.edu/">Binghamton University</a> -- 2016-2020
-<ul>
-<li>Thesis: <a href="https://search.proquest.com/openview/9acd2f0b1aed947439b0a5a9c8dfc85d/1?pq-origsite=gscholar&amp;cbl=18750&amp;diss=y&amp;casa_token=HmQtSrbj7z0AAAAA:zGGHIEVUM3ELlJXONgcY_mdZBumNL8Ca_ePzHnVz6kRuECnWrZNKvLlr7JnrrxLXAHqmi2PIFw">Task-Relevant Shifts in Category Representations</a></li>
-<li>Advisor: <a href="https://kurtzlab.binghamton.edu/home">Kenneth J. Kurtz</a></li>
-</ul>
-</li>
-<li><strong>BA</strong>, <em>Psychology</em> @ <a href="https://www.csuohio.edu/">Cleveland State University</a> -- 2012-2014
-<ul>
-<li>Thesis: Using Change Deafness to Investigate Attentional Allocation During Spoken Word Recognition</li>
-<li>Advisor: <a href="https://artsandsciences.csuohio.edu/languagelab/languagelab">Conor T. M<sup>c</sup>Lennan</a></li>
-</ul>
-</li>
-<li><strong>AAS</strong> @ <a href="https://www.lakelandcc.edu/">Lakeland Community College</a> -- 2010-2012</li>
-</ul>
-<h1>Teaching</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cognition</td>
-<td>Spring 2022</td>
-<td><a href="https://www.lemoyne.edu/">Le Moyne College</a></td>
-</tr>
-<tr>
-<td>Research Methods</td>
-<td>Spring 2022</td>
-<td><a href="https://www.lemoyne.edu/">Le Moyne College</a></td>
-</tr>
-<tr>
-<td>Statistics</td>
-<td>Summer 2021</td>
-<td><a href="https://www.binghamton.edu/">Binghamton University</a></td>
-</tr>
-<tr>
-<td>Perception</td>
-<td>Summer 2018</td>
-<td><a href="https://www.binghamton.edu/">Binghamton University</a></td>
-</tr>
-</tbody>
-</table>
-<h1>Research</h1>
-<p>My research interests focus on testing models of human cognition and behavior -- with the goal of understanding both the mechanistic and environmental constraints of our cognitive abilities. In particular, I'm very interested in the way information is structured in the human mind -- especially information best described by graphs / networks. I'm also interested in how large-scale sources of behavioral data (internet, social media, video games) could be used as tools for testing psychological theories.</p>
-<h2>Publications</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2021</td>
-<td>Kurtz, K. J., &amp; Wetzel, M. T. (2021)</td>
-<td>On the generalization of simple alternating category structures</td>
-<td>Cognitive Science</td>
-<td><a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/cogs.12972">[link]</a></td>
-</tr>
-<tr>
-<td>2017</td>
-<td>Incera, S., Shah, A. P., McLennan, C. T., &amp; Wetzel, M. T.</td>
-<td>Sentence context influences the subjective perception of foreign accents</td>
-<td>Acta Psychologica</td>
-<td><a href="https://www.sciencedirect.com/science/article/pii/S0001691816303675">[link]</a></td>
-</tr>
-</tbody>
-</table>
-<h2>Presentations</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2019</td>
-<td>Poster</td>
-<td>Wetzel, M., &amp; Kurtz, K.</td>
-<td>The Impact of Category Learning on Item Similarity: Effects of Learning Mode and Category Structure</td>
-<td>Psychonomics</td>
-<td></td>
-</tr>
-<tr>
-<td>2018</td>
-<td>Poster</td>
-<td>Wetzel, M., &amp; Kurtz, K.</td>
-<td>Investigating Modifications to the DIVergent Autoencoder (DIVA) Model of Human Categorization.</td>
-<td>Psychonomics</td>
-<td></td>
-</tr>
-<tr>
-<td>2018</td>
-<td>Poster</td>
-<td>Wetzel, M., &amp; Kurtz, K.</td>
-<td>Generalizing an Alternating Category Structure</td>
-<td>Cognitive Science Society</td>
-<td></td>
-</tr>
-<tr>
-<td>2013</td>
-<td>Poster</td>
-<td>Wetzel, M., Tuft, S.E., Krestar, M.L., &amp; McLennan, C.T.</td>
-<td>Using Change Deafness to Investigate Attentional Allocation During Spoken Word Recognition</td>
-<td>College of Sciences and Health Professions Research Day, Cleveland State University</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h1>Honors</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2014</td>
-<td><strong>Outstanding Undergraduate Psychology Student Award.</strong></td>
-<td>Cleveland State University</td>
-</tr>
-</tbody>
-</table>
+<p>^[your definition of &quot;civilization&quot; may not include those things, but bear with me]</p>
+<p>Whatever caused those things to be discovered was probably a high-frequency event that would have been repeated enough times to lead to a later development. For example, imagine our ancestors pulling up sprouts to consume. In many instances, the roots of the sprout will still have the seed attached. Seeing that over and over again (and generalizing that that's the same seed that came from a fruit) would have happened enough times to pass anthropologists' &quot;high-frequency&quot; check.</p>
+<h1>What does the High-Frequency Check Imply?</h1>
+<p>I don't have any good sense of what causes civilization, and I don't have a background in anthropology. But what's relevant for this post is the premise that high-frequency events are the likely causes of civilization development. That is, the development of civilization happened because a bunch of high-frequency events had enough time to trigger the cascade of events that led to cultural evolution. But that seems to imply something else: that <strong>civilization advancement is inevitable</strong>.</p>
+<p>The logic goes as follows: a semi-intelligent species is navigating through their local environment, performing a large number of interactions with their ecosystem and eachother. They're constantly being bombarded with signals about how the natural world can be exploited (giving them a comparative advantage over other organisms as well as their previous selves) -- each signal chips away at the probability of maintaining the current equilibrium. If it's the case that the environment is filled with these signals, and we're biologically wired to exploit our environment, then it's unlikely that civilization can resist advancing.</p>
+<h1>So what?</h1>
+<p>In some ways, this is just rephrasing something rather obvious (and somewhat tautological): civilization evolved because it evolved. There isn't a whole lot of insight here. But, it does start to make historical development seem less serendipitous -- though that's not to say that circumstantial events can't have a huge influence on the direction civilization moves towards^[e.g., the various <a href="https://en.wikipedia.org/wiki/Nuclear_close_calls">nuclear close calls</a>]. Believing this doesn't necessarily come with much predictive power; just because you know <em>why</em> doesn't mean you know <em>how</em>. But I guess this post can provide advice to a time traveler trying to prevent our civilization's development: you can make it take longer, but we'll get there eventually.</p>
 
-</div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleSwitch = document.querySelector('.field'); // Select the existing toggle switch field
+    const navbarEnd = document.querySelector('#navbarBasicExample .navbar-end'); // Get the navbar-end element
 
+    if (toggleSwitch && navbarEnd) {
+        navbarEnd.insertAdjacentElement('afterbegin', toggleSwitch); // Move the toggle switch to the start of navbar-end
+    }
+});
+</script>
+<!-- have a "leave a comment" link that points to ./blog/#leaving-comments -->
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
     <div class='truncate-full-path has-text-centered mb-4'>
@@ -315,14 +278,14 @@ Matt Wetzel | Data Scientist | mw3i at gmail
         
         
         
-        / <a href="/about" class="hover-underline">about</a>
+        / <a href="/thoughts" class="hover-underline">thoughts</a>
         
         
         
         
         
         
-        / <a href="/about/cv" class="hover-underline">cv</a>
+        / <a href="/thoughts/2024-05-10 | High Frequency Events Cause Human Development" class="hover-underline">2024-05-10 | High Frequency Events Cause Human Development</a>
         
         
         

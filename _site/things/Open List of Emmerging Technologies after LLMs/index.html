@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High-Frequency Events in Human History</title>
+    <title>Open, Running List of Expected Technologies We'll See from LLMs</title>
     <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.12/dist/css/uikit.min.css" /> -->
@@ -67,10 +67,29 @@
 
 <body>
     <style>
+%comment% header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
+.navbar {
+    transition: background-color 0.7s ease-in-out;
+    /* Adjust the timing and easing as needed */
+}
 
-.truncate {
-    max-width: 50vw;
+.navbar-item {
+    height: 40px;
+}
+
+.scrolled {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+    {}
+
+%endcomment% .truncate-full-path {
+    max-width: 100vw;
     /* Set your desired max width */
     overflow: hidden;
     white-space: nowrap;
@@ -81,7 +100,7 @@
     <nav class="navbar p-3" role="navigation" aria-label="main navigation" style='background-color: transparent;'>
         <div class="navbar-brand">
             <!-- <div class='navbar-item'>matt w</div> -->
-            <a class="is-medium-radius navbar-item is-rounded  mx-2 px-5" href="/">/mattwetzel</a>
+            <a class="is-medium-radius navbar-item is-rounded  mx-2 px-5" href="/">/mw</a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -92,27 +111,12 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <div class="navbar-item has-text-grey-dark">
-                    <div class='truncate'>
-                        
-                        
-                        
-                        
-                        
-                        
-                        /blog
-                        
-                        
-                        
-                        /2024-05-10 | High Frequency Events Cause Human Development
-                        
-                        
-                        
-                    </div>
                 </div>
             </div>
             <div class="navbar-end">
-                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/blog/">/blog</a>
-                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a>
+                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/things/">/things</a>
+                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/thoughts/">/thoughts</a>
+                <!-- <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a> -->
                 <div class="is-medium-radius navbar-item has-dropdown is-hoverable is-rounded mx-2">
                     <a class="is-medium-radius navbar-link  is-rounded">/about</a>
                     <div class="navbar-dropdown is-boxed has-background-dark is-medium-radius">
@@ -124,7 +128,7 @@
         </div>
     </nav>
 </header>
-<main class='theme-dark'>
+<main class='theme-dark' style='z-index: 10;'>
     
     <style>
     .switch {
@@ -191,49 +195,33 @@ input:checked + .slider:before {
 }
 </style>
 <!-- this next part could have probably been accomplished with minimal alpine and just 1 css class (column-mode-div), but i nudged chatgpt to use alpine and it came up with a somewhat convoluted approach. -->
-<section class="section p-0" x-data="{ isToggled: localStorage.getItem('toggleStatus') === 'true' || false }">
+<section class="section p-0 mt-5">
     <!-- Toggle switch -->
-    <div class="field is-flex is-align-items-center pt-3 pr-6">
-        <label for="switchToggle" class="mr-2">horizontal mode</label>
-        <label class="switch">
-            <input id="switchToggle" type="checkbox" name="switchToggle" class="switch is-rounded" x-model="isToggled" @click="localStorage.setItem('toggleStatus', $el.checked);" >
-            <span class="slider"></span>
-        </label>
-    </div>
-    <div :class="isToggled ? 'container ml-0 mr-0' : 'container is-max-tablet'" :style="isToggled ? 'width: 100vw;' : 'overflow-x: auto !important;'" class="">
+    <div class="container is-max-tablet">
         <!-- Container to handle overflow -->
         <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? '' : 'pb-6'">
             <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px; margin-right: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
                 <!-- Title of the blog post -->
-                <h1 class="title is-2 has-text-weight-bold">High-Frequency Events in Human History</h1>
+                <h1 class="title is-2 has-text-weight-bold">Open, Running List of Expected Technologies We'll See from LLMs</h1>
                 <!-- Date of the blog post -->
-                <p class="subtitle is-5 has-text-grey-dark mt-3">May 09, 2024</p>
+                <p class="subtitle is-5 has-text-grey-dark mt-3"></p>
                 <!-- Main content of the blog post -->
                 <br>
                 <div>
-                    <p><img src="discovery-of-fire.webp" alt="Discovery of fire"></p>
-<h1>High-Frequency as a Criteria for Evaluating Causes of Human Development</h1>
-<p>I listened to a podcast with <a href="https://en.wikipedia.org/wiki/Richard_Wrangham">Dr. Richard Wrangam</a>, who discussed (with appropriately low epistemic confidence) the idea that the act of sharpening stone tools (which produce sparks) could have been the precursor to the discovery of fire. An explanation like this is obviously difficult to empirically support, as Dr. Wrangam was well aware. But, pointing to stone tool sharpening as a cause of fire discovery does have some characteristics that make it plausible, namely:</p>
-<p>(1) human ancestors likely engaged in the action, and</p>
-<p>(2) it would have been a highly frequent event.</p>
-<p>^ I found point 2 pretty fascinating: that anthropologists use &quot;high frequency&quot; as a benchmark for evaluating the hypothetical cause of some human event (e.g., control of fire). The logic makes a lot of sense. <em>If</em> human development is a noisy, probabilistic chain of events, <em>then</em> high-frequency events are more likely to have been the cause of major developments. Accidentally igniting some twigs (via tool sharpening) might go unnoticed if it only happens once; repeating the event hundreds of times will lead to a discovery that eventually becomes a stable feature of a given culture.</p>
-<h1>Extending the Logic to the Development of Civilization</h1>
-<p>It seems like we can extend this logic to the development of civilization -- in particular:</p>
+                    <p><img src="" alt=""></p>
 <ul>
-<li>language</li>
-<li>writing</li>
-<li>agriculture</li>
-<li>money</li>
-<li>government</li>
-<li>etc</li>
+<li>[ ] automated call centers</li>
+<li>[ ] actual voice-to-text control of device operating systems (phones / laptops / etc) (i.e., Siri but it works)</li>
+<li>[ ] automated coders chipping away at every issue on github (heard this idea first on <a href="">Dwarkesh Podcast</a>)
+<ul>
+<li>^ implications for open source ecosystem? (what funds the server costs?)</li>
 </ul>
-<p>^[your definition of &quot;civilization&quot; may not include those things, but bear with me]</p>
-<p>Whatever caused those things to be discovered was probably a high-frequency event that would have been repeated enough times to lead to a later development. For example, imagine our ancestors pulling up sprouts to consume. In many instances, the roots of the sprout will still have the seed attached. Seeing that over and over again (and generalizing that that's the same seed that came from a fruit) would have happened enough times to pass anthropologists' &quot;high-frequency&quot; check.</p>
-<h1>What does the High-Frequency Check Imply?</h1>
-<p>I don't have any good sense of what causes civilization, and I don't have a background in anthropology. But what's relevant for this post is the premise that high-frequency events are the likely causes of civilization development. That is, the development of civilization happened because a bunch of high-frequency events had enough time to trigger the cascade of events that led to cultural evolution. But that seems to imply something else: that <strong>civilization advancement is inevitable</strong>.</p>
-<p>The logic goes as follows: a semi-intelligent species is navigating through their local environment, performing a large number of interactions with their ecosystem and eachother. They're constantly being bombarded with signals about how the natural world can be exploited (giving them a comparative advantage over other organisms as well as their previous selves) -- each signal chips away at the probability of maintaining the current equilibrium. If it's the case that the environment is filled with these signals, and we're biologically wired to exploit our environment, then it's unlikely that civilization can resist advancing.</p>
-<h1>So what?</h1>
-<p>In some ways, this is just rephrasing something rather obvious (and somewhat tautological): civilization evolved because it evolved. There isn't a whole lot of insight here. But, it does start to make historical development seem less serendipitous -- though that's not to say that circumstantial events can't have a huge influence on the direction civilization moves towards^[e.g., the various <a href="https://en.wikipedia.org/wiki/Nuclear_close_calls">nuclear close calls</a>]. Believing this doesn't necessarily come with much predictive power; just because you know <em>why</em> doesn't mean you know <em>how</em>. But I guess this post can provide advice to a time traveler trying to prevent our civilization's development: you can make it take longer, but we'll get there eventually.</p>
+</li>
+</ul>
+<hr>
+<pre><code>**Hint:** make a pull request to modify the list
+</code></pre>
+<!-- <meta http-equiv="refresh" content="0;url=https://www.example.com"> -->
 
                 </div>
             </article>
@@ -253,9 +241,31 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- have a "leave a comment" link that points to ./blog/#leaving-comments -->
 
 </main>
-<footer class="footer has-background-dark mt-6">
+<footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
+    <div class='truncate-full-path has-text-centered mb-4'>
+        
+        
+        
+        
+        
+        
+        
+        
+        / <a href="/things" class="hover-underline">things</a>
+        
+        
+        
+        
+        
+        
+        / <a href="/things/Open List of Emmerging Technologies after LLMs" class="hover-underline">Open List of Emmerging Technologies after LLMs</a>
+        
+        
+        
+        
+    </div>
     <div class="content has-text-centered">
-        <p>mw</p>
+        <p>mattwetzel</p>
         <div class='mt-5'>
             <a href="https://github.com/mw3i" class="icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">

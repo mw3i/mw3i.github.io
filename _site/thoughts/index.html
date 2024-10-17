@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mw</title>
+    <title>Thoughts (blog)</title>
     <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.12/dist/css/uikit.min.css" /> -->
@@ -100,7 +100,7 @@
     <nav class="navbar p-3" role="navigation" aria-label="main navigation" style='background-color: transparent;'>
         <div class="navbar-brand">
             <!-- <div class='navbar-item'>matt w</div> -->
-            <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2 px-5" href="/">/mw</a>
+            <a class="is-medium-radius navbar-item is-rounded  mx-2 px-5" href="/">/mw</a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -115,7 +115,7 @@
             </div>
             <div class="navbar-end">
                 <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/things/">/things</a>
-                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/thoughts/">/thoughts</a>
+                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/thoughts/">/thoughts</a>
                 <!-- <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a> -->
                 <div class="is-medium-radius navbar-item has-dropdown is-hoverable is-rounded mx-2">
                     <a class="is-medium-radius navbar-link  is-rounded">/about</a>
@@ -130,174 +130,92 @@
 </header>
 <main class='theme-dark' style='z-index: 10;'>
     
-    <script src='/-/ocanvas-2.9.1.js'></script>
-<section class="columns" style="height: 90vh;">
-    <!-- left column -->
-    <div class="column is-full is-one-quarter-tablet is-medium-radius">
-        <br>
-        <br>
-        <br>
-        <div class='mb-5'>
-            <figure class="image is-128x128 mx-auto" style='z-index: 1000;'>
-                <img class="is-rounded is-128x128" src="/-/avatar.jpg" style="object-fit: cover; width: 128px; height: 128px;">
-            </figure>
-        </div>
-        <div class='has-text-centered'>
-            <p class="title has-text-grey">matt</p>
-            <p class="subtitle has-text-grey">data person</p>
-            <!-- <a class="button" href="/about/resume">resume</a> -->
-            <!-- <a class="button" href="/about/cv">cv</a> -->
-        </div>
-        <!-- right column -->
-        <div class="column is-full is-three-quarters-tablet">
-            <div style='position: fixed; height: 90vh; width: 99vw; top: 0; left: 0; z-index: 0;'>
-                <canvas id='particle_space'>
-                </canvas>
-            </div>
-        </div>
-    </div>
-</section>
-<script>
-// settings & swarm parameters
-p = [
-    ['point speed', [1, 1000, 300]], // <-- min, max, default
-    ['point focus', [1, 20, 7]], 
-    ['point momentum', [.001, 1, .7]],
-    ['social pressure', [.00001, .2, .01]],
-    ['noise', [1, 30, 10]],
-]
-
-s = {
-    'num_nodes': 150,
-    'node_size': 4,
-    'node_fill_color': 'rgba(255,255,255,.8)',
-    // 'canvas_background': '#ececec'
-    'point speed': p[0][1][2],
-    'point focus': p[1][1][2],
-    'point momentum': p[2][1][2],
-    'social pressure': p[3][1][2],
-    'noise': p[4][1][2],
-};
-
-const arrMean = arr => arr.reduce((a,b) => a + b, 0) / arr.length
-
-// __Initial Setup__
-var canvas = document.getElementById('particle_space');
-// canvas.width  = window.innerWidth;
-// canvas.height = window.innerHeight; 
-
-var ctx = canvas.getContext('2d');
-ctx.lineWidth = 2;
-ctx.canvas.width  = window.innerWidth;
-ctx.canvas.height = window.innerHeight;
-
-o_canvas = oCanvas.create({
-  canvas: "#particle_space",
-  background: s['canvas_background'],
-});
-
-build()
-
-x = window.innerWidth / 2
-y = window.innerHeight / 2
-
-// this is where the mathgic happens
-function update_node_loc(nodes) {
-  for (let n in nodes) {
-
-    momentums_x[n] = .5 * (x - nodes[n].x) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_x[n]) + (s['social pressure'] * (x - arrMean(node_positions_x)))// + (.0075 * (node_positions_x[n] - arrMean(node_positions_x)))
-    momentums_y[n] = .5 * (y - nodes[n].y) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_y[n]) + (s['social pressure'] * (y - arrMean(node_positions_y)))// + (.0075 * (node_positions_y[n] - arrMean(node_positions_y)))
-    // i wonder what "social momentum" would look like (beyond just individual point momentum)
-
-    node_positions_x[n] = node_positions_x[n] + momentums_x[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])
-    node_positions_y[n] = node_positions_y[n] + momentums_y[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])
-
-    nodes[n].x = node_positions_x[n]
-    nodes[n].y = node_positions_y[n]
-
-  }
-  o_canvas.redraw()
+    <style type="text/css">
+.hover-post {
+    transition: background-color 0.1s ease;
+    background-color: rgba(0, 0, 0, .05) !important;
 }
 
-// this is a fun add on
-function scatter(nodes) {
-  for (let n in nodes) {
-    node_positions_x[n] =  node_positions_x[n] + (Math.random() * 100) - (Math.random() * 100)
-    node_positions_y[n] =  node_positions_y[n] + (Math.random() * 100) - (Math.random() * 100)
+.hover-post:not(:first-of-type) {
+    border-top: 0 !important;
+    /* Remove top border for all but the first */
+}
+
+.hover-post:hover {
+    background-color: rgba(255, 255, 255, .1) !important;
+    /* Change this to your preferred hover color */
+}
+
+.overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    /* Adjust this for the desired level of transparency */
+    pointer-events: none;
+    /* Allow clicks to pass through to the content */
+}
+</style>
+<section class='section container is-max-desktop'>
     
-    nodes[n].x = node_positions_x[n] 
-    nodes[n].y = node_positions_y[n] 
-  }
-  o_canvas.redraw()
-}
-
-
-// update stuff
-window.setInterval(function(){ // <-- from: https://stackoverflow.com/questions/2170923/whats-the-easiest-way-to-call-a-function-every-5-seconds-in-jquery
-  update_node_loc(nodes)
-}, 50)
-
-o_canvas.bind("click tap", function () {
-  scatter(nodes);
-});
-
-o_canvas.bind("touchmove tap", function () {
-  x = o_canvas.touch.x
-  y = o_canvas.touch.y
-})
-
-document.addEventListener('mousemove', function (event) {
-  x = event.clientX;
-  y = event.clientY;
-});
-
-
-function resize_ocanvas() {
-  o_canvas.width = window.innerWidth;
-  o_canvas.height = window.innerHeight;
-};
-
-window.addEventListener('resize', resize_ocanvas, false);
-
-function build() {
-
-  nodes = []
-  momentums_x = []
-  momentums_y = []
-  node_positions_x = []
-  node_positions_y = []
-  for (i=0; i < s['num_nodes']; i++) {
-    pos_x = window.innerWidth / 2 + Math.random() * 600 - Math.random() * 600
-    pos_y = window.innerHeight / 2 + Math.random() * 600 - Math.random() * 600
-
-    var node = o_canvas.display.arc({
-      x: pos_x,
-      y: pos_y,
-      radius: s['node_size'],
-      start: 360,
-      fill: s['node_fill_color'],
-    })
-
-    nodes = [...nodes, node] // <-- add node to nodes list
-    node_positions_x = [...node_positions_x, pos_x]
-    node_positions_y = [...node_positions_y, pos_y]
-
-    momentums_x = [...momentums_x, 0]
-    momentums_y = [...momentums_y, 0]
-    o_canvas.addChild(node);
-  }
-}
-
-function destroy() {
-  for (node of nodes) {
-    o_canvas.removeChild(node)
-  }
-}
-</script>
-
+    
+    <img source=''>
+    <a class="media-content" href="/thoughts/2024-09-04 | HTML as the first and last language of the web/">
+        <!-- <article class="media p-6 hover-post is-medium-radius" style='overflow: hidden; position: relative;'> -->
+        <article class="media p-6 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
+            <div class="content" style="position: relative; z-index: 1;">
+                <p class='title is-4'><strong>Prediction: HTML/JS/CSS will be the first and last human-leveraged language of the internet</strong></p>
+                <p class=''>By the time we could feasibly rebuild the internet from the ground up, AI will be doing most of the coding anyways.</p>
+                <p class='mt-3 is-6 has-text-grey'>2024-09-03</p>
+            </div>
+            <div class="overlay" style="background-image: url('/thoughts/2024-09-04 | HTML as the first and last language of the web/army-of-robot-webdevs.webp');"></div>
+        </article>
+    </a>
+    <div class='column is-half mx-auto'>
+        <hr>
+    </div>
+    
+    
+    <img source=''>
+    <a class="media-content" href="/thoughts/2024-05-10 | High Frequency Events Cause Human Development/">
+        <!-- <article class="media p-6 hover-post is-medium-radius" style='overflow: hidden; position: relative;'> -->
+        <article class="media p-6 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
+            <div class="content" style="position: relative; z-index: 1;">
+                <p class='title is-4'><strong>High-Frequency Events in Human History</strong></p>
+                <p class=''>How much of human development was serendipitous?</p>
+                <p class='mt-3 is-6 has-text-grey'>2024-05-09</p>
+            </div>
+            <div class="overlay" style="background-image: url('/thoughts/2024-05-10 | High Frequency Events Cause Human Development/discovery-of-fire.webp');"></div>
+        </article>
+    </a>
+    <div class='column is-half mx-auto'>
+        <hr>
+    </div>
+    
+</section>
+<section id='leaving-comments' class='container is-max-desktop p-5'>
+    <h1>Leaving Comments</h1>
+    <p>To leave a comment on a particular post: make a pull request, add a file with format `{timestamp}-{github username}.md` in the `comments/` folder of a particular post -- and eventually it'll appear on the next build.</p>
+    <p>Or just email it to me ¯\_(ツ)_/¯</p>
+</section>
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
     <div class='truncate-full-path has-text-centered mb-4'>
+        
+        
+        
+        
+        
+        
+        
+        
+        / <a href="/thoughts" class="hover-underline">thoughts</a>
+        
+        
         
         
     </div>

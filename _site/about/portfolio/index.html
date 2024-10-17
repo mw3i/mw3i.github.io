@@ -67,10 +67,29 @@
 
 <body>
     <style>
+%comment% header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
+.navbar {
+    transition: background-color 0.7s ease-in-out;
+    /* Adjust the timing and easing as needed */
+}
 
-.truncate {
-    max-width: 50vw;
+.navbar-item {
+    height: 40px;
+}
+
+.scrolled {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+    {}
+
+%endcomment% .truncate-full-path {
+    max-width: 100vw;
     /* Set your desired max width */
     overflow: hidden;
     white-space: nowrap;
@@ -81,7 +100,7 @@
     <nav class="navbar p-3" role="navigation" aria-label="main navigation" style='background-color: transparent;'>
         <div class="navbar-brand">
             <!-- <div class='navbar-item'>matt w</div> -->
-            <a class="is-medium-radius navbar-item is-rounded  mx-2 px-5" href="/">/mattwetzel</a>
+            <a class="is-medium-radius navbar-item is-rounded  mx-2 px-5" href="/">/mw</a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -92,27 +111,12 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <div class="navbar-item has-text-grey-dark">
-                    <div class='truncate'>
-                        
-                        
-                        
-                        
-                        
-                        
-                        /about
-                        
-                        
-                        
-                        /portfolio
-                        
-                        
-                        
-                    </div>
                 </div>
             </div>
             <div class="navbar-end">
-                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/blog/">/blog</a>
-                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a>
+                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/things/">/things</a>
+                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/thoughts/">/thoughts</a>
+                <!-- <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a> -->
                 <div class="is-medium-radius navbar-item has-dropdown is-hoverable is-rounded mx-2">
                     <a class="is-medium-radius navbar-link  is-active  is-rounded">/about</a>
                     <div class="navbar-dropdown is-boxed has-background-dark is-medium-radius">
@@ -124,7 +128,7 @@
         </div>
     </nav>
 </header>
-<main class='theme-dark'>
+<main class='theme-dark' style='z-index: 10;'>
     
     <div class="columns is-flex is-flex-wrap-wrap p-6">
 <p><div class="column is-full-mobile is-half-tablet">
@@ -209,9 +213,31 @@
 </div></p>
 </div>
 </main>
-<footer class="footer has-background-dark mt-6">
+<footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
+    <div class='truncate-full-path has-text-centered mb-4'>
+        
+        
+        
+        
+        
+        
+        
+        
+        / <a href="/about" class="hover-underline">about</a>
+        
+        
+        
+        
+        
+        
+        / <a href="/about/portfolio" class="hover-underline">portfolio</a>
+        
+        
+        
+        
+    </div>
     <div class="content has-text-centered">
-        <p>mw</p>
+        <p>mattwetzel</p>
         <div class='mt-5'>
             <a href="https://github.com/mw3i" class="icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">

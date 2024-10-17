@@ -5,12 +5,17 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/-/");
     eleventyConfig.addPassthroughCopy("./src/favicon.ico");
     
-    eleventyConfig.addPassthroughCopy("src/blog/**/*.jpg");
-    eleventyConfig.addPassthroughCopy("src/blog/**/*.jpeg");
-    eleventyConfig.addPassthroughCopy("src/blog/**/*.png");
-    eleventyConfig.addPassthroughCopy("src/blog/**/*.webp");
-    eleventyConfig.addPassthroughCopy("src/blog/**/*.gif");
+    eleventyConfig.addPassthroughCopy("src/thoughts/**/*.jpg");
+    eleventyConfig.addPassthroughCopy("src/thoughts/**/*.jpeg");
+    eleventyConfig.addPassthroughCopy("src/thoughts/**/*.png");
+    eleventyConfig.addPassthroughCopy("src/thoughts/**/*.webp");
+    eleventyConfig.addPassthroughCopy("src/thoughts/**/*.gif");
 
+    eleventyConfig.addPassthroughCopy("src/things/**/*.jpg");
+    eleventyConfig.addPassthroughCopy("src/things/**/*.jpeg");
+    eleventyConfig.addPassthroughCopy("src/things/**/*.png");
+    eleventyConfig.addPassthroughCopy("src/things/**/*.webp");
+    eleventyConfig.addPassthroughCopy("src/things/**/*.gif");
 
     eleventyConfig.addShortcode("loadJSON", function(file) {
         const filePath = path.join(__dirname, file);
@@ -25,9 +30,17 @@ module.exports = function(eleventyConfig) {
     });
 
     // Define a collection for blog posts
-    eleventyConfig.addCollection("blog", function(collectionApi) {
+    eleventyConfig.addCollection("thoughts", function(collectionApi) {
         return collectionApi
-            .getFilteredByGlob("src/blog/**/*.md")
+            .getFilteredByGlob("src/thoughts/**/*.md")
+            .filter(item => !item.filePathStem.includes("/."))
+            .sort((a, b) => b.date - a.date); // Sort by date, newest first
+    });
+
+    // Define a collection for things 
+    eleventyConfig.addCollection("things", function(collectionApi) {
+        return collectionApi
+            .getFilteredByGlob("src/things/**/index.md")
             .filter(item => !item.filePathStem.includes("/."))
             .sort((a, b) => b.date - a.date); // Sort by date, newest first
     });

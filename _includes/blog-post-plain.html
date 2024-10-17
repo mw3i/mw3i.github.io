@@ -64,30 +64,11 @@ input:checked + .slider:before {
         margin-right: 0px !important;
     }
 }
-
-@media screen and (min-width: 769px) and (max-width: 1224px) {
-    .column-container {
-        column-width: 33vw !important;
-        max-height: 89vh;
-        z-index: 0;
-        overflow-x: auto !important;
-        padding: 40px;
-        column-gap: 40px;
-        margin-right: 40px;
-    }
-}
 </style>
 <!-- this next part could have probably been accomplished with minimal alpine and just 1 css class (column-mode-div), but i nudged chatgpt to use alpine and it came up with a somewhat convoluted approach. -->
-<section class="section p-0" x-data="{ isToggled: localStorage.getItem('toggleStatus') === 'true' || false }">
+<section class="section p-0 mt-5">
     <!-- Toggle switch -->
-    <div class="field is-flex is-align-items-center pt-3 pr-6">
-        <label for="switchToggle" class="mr-2">horizontal mode</label>
-        <label class="switch">
-            <input id="switchToggle" type="checkbox" name="switchToggle" class="switch is-rounded" x-model="isToggled" @click="{%comment%}isToggled ? document.querySelector('footer').classList.remove('is-hidden') : document.querySelector('footer').classList.add('is-hidden'); {%endcomment%}localStorage.setItem('toggleStatus', $el.checked);" {%comment%}x-init="isToggled ? document.querySelector('footer').classList.add('is-hidden') : '' " {%endcomment%}>
-            <span class="slider"></span>
-        </label>
-    </div>
-    <div :class="isToggled ? 'container ml-0 mr-0' : 'container is-max-tablet'" :style="isToggled ? 'width: 100vw;' : 'overflow-x: auto !important;'" class="">
+    <div class="container is-max-tablet">
         <!-- Container to handle overflow -->
         <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? {%comment%}'px-5'{%endcomment%}'' : 'pb-6'">
             <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px; margin-right: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
@@ -98,7 +79,6 @@ input:checked + .slider:before {
                 <!-- Main content of the blog post -->
                 <br>
                 <div>
-                    <img src='{{ image }}'>
                     {{ content }}
                 </div>
             </article>

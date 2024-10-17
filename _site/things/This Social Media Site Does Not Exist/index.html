@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mw</title>
+    <title>This Social Media Site Does Not Exist</title>
     <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.12/dist/css/uikit.min.css" /> -->
@@ -100,7 +100,7 @@
     <nav class="navbar p-3" role="navigation" aria-label="main navigation" style='background-color: transparent;'>
         <div class="navbar-brand">
             <!-- <div class='navbar-item'>matt w</div> -->
-            <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2 px-5" href="/">/mw</a>
+            <a class="is-medium-radius navbar-item is-rounded  mx-2 px-5" href="/">/mw</a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="navbar-end">
-                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/things/">/things</a>
+                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/things/">/things</a>
                 <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/thoughts/">/thoughts</a>
                 <!-- <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a> -->
                 <div class="is-medium-radius navbar-item has-dropdown is-hoverable is-rounded mx-2">
@@ -130,174 +130,125 @@
 </header>
 <main class='theme-dark' style='z-index: 10;'>
     
-    <script src='/-/ocanvas-2.9.1.js'></script>
-<section class="columns" style="height: 90vh;">
-    <!-- left column -->
-    <div class="column is-full is-one-quarter-tablet is-medium-radius">
-        <br>
-        <br>
-        <br>
-        <div class='mb-5'>
-            <figure class="image is-128x128 mx-auto" style='z-index: 1000;'>
-                <img class="is-rounded is-128x128" src="/-/avatar.jpg" style="object-fit: cover; width: 128px; height: 128px;">
-            </figure>
-        </div>
-        <div class='has-text-centered'>
-            <p class="title has-text-grey">matt</p>
-            <p class="subtitle has-text-grey">data person</p>
-            <!-- <a class="button" href="/about/resume">resume</a> -->
-            <!-- <a class="button" href="/about/cv">cv</a> -->
-        </div>
-        <!-- right column -->
-        <div class="column is-full is-three-quarters-tablet">
-            <div style='position: fixed; height: 90vh; width: 99vw; top: 0; left: 0; z-index: 0;'>
-                <canvas id='particle_space'>
-                </canvas>
-            </div>
+    <style>
+    .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4258ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.column-container h1,
+.column-container h2,
+.column-container h3,
+.column-container h4,
+.column-container h5,
+.column-container h6 {
+    break-inside: avoid; /* Prevent headers from breaking */
+}
+
+@media screen and (max-width: 768px) { /* Bulma's mobile breakpoint */
+    .column-container {
+        column-width: 100\vw !important;
+        max-height: none !important;
+        padding: 30px !important;
+        margin-right: 0px !important;
+    }
+}
+</style>
+<!-- this next part could have probably been accomplished with minimal alpine and just 1 css class (column-mode-div), but i nudged chatgpt to use alpine and it came up with a somewhat convoluted approach. -->
+<section class="section p-0 mt-5">
+    <!-- Toggle switch -->
+    <div class="container is-max-tablet">
+        <!-- Container to handle overflow -->
+        <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? '' : 'pb-6'">
+            <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px; margin-right: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
+                <!-- Title of the blog post -->
+                <h1 class="title is-2 has-text-weight-bold">This Social Media Site Does Not Exist</h1>
+                <!-- Date of the blog post -->
+                <p class="subtitle is-5 has-text-grey-dark mt-3">May 09, 2024</p>
+                <!-- Main content of the blog post -->
+                <br>
+                <div>
+                    <p><img src="index.png" alt=""></p>
+<meta http-equiv="refresh" content="0;url=https://mw3i.github.io/this-social-media-site-does-not-exist/">
+
+                </div>
+            </article>
         </div>
     </div>
 </section>
-<script>
-// settings & swarm parameters
-p = [
-    ['point speed', [1, 1000, 300]], // <-- min, max, default
-    ['point focus', [1, 20, 7]], 
-    ['point momentum', [.001, 1, .7]],
-    ['social pressure', [.00001, .2, .01]],
-    ['noise', [1, 30, 10]],
-]
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleSwitch = document.querySelector('.field'); // Select the existing toggle switch field
+    const navbarEnd = document.querySelector('#navbarBasicExample .navbar-end'); // Get the navbar-end element
 
-s = {
-    'num_nodes': 150,
-    'node_size': 4,
-    'node_fill_color': 'rgba(255,255,255,.8)',
-    // 'canvas_background': '#ececec'
-    'point speed': p[0][1][2],
-    'point focus': p[1][1][2],
-    'point momentum': p[2][1][2],
-    'social pressure': p[3][1][2],
-    'noise': p[4][1][2],
-};
-
-const arrMean = arr => arr.reduce((a,b) => a + b, 0) / arr.length
-
-// __Initial Setup__
-var canvas = document.getElementById('particle_space');
-// canvas.width  = window.innerWidth;
-// canvas.height = window.innerHeight; 
-
-var ctx = canvas.getContext('2d');
-ctx.lineWidth = 2;
-ctx.canvas.width  = window.innerWidth;
-ctx.canvas.height = window.innerHeight;
-
-o_canvas = oCanvas.create({
-  canvas: "#particle_space",
-  background: s['canvas_background'],
+    if (toggleSwitch && navbarEnd) {
+        navbarEnd.insertAdjacentElement('afterbegin', toggleSwitch); // Move the toggle switch to the start of navbar-end
+    }
 });
-
-build()
-
-x = window.innerWidth / 2
-y = window.innerHeight / 2
-
-// this is where the mathgic happens
-function update_node_loc(nodes) {
-  for (let n in nodes) {
-
-    momentums_x[n] = .5 * (x - nodes[n].x) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_x[n]) + (s['social pressure'] * (x - arrMean(node_positions_x)))// + (.0075 * (node_positions_x[n] - arrMean(node_positions_x)))
-    momentums_y[n] = .5 * (y - nodes[n].y) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_y[n]) + (s['social pressure'] * (y - arrMean(node_positions_y)))// + (.0075 * (node_positions_y[n] - arrMean(node_positions_y)))
-    // i wonder what "social momentum" would look like (beyond just individual point momentum)
-
-    node_positions_x[n] = node_positions_x[n] + momentums_x[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])
-    node_positions_y[n] = node_positions_y[n] + momentums_y[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])
-
-    nodes[n].x = node_positions_x[n]
-    nodes[n].y = node_positions_y[n]
-
-  }
-  o_canvas.redraw()
-}
-
-// this is a fun add on
-function scatter(nodes) {
-  for (let n in nodes) {
-    node_positions_x[n] =  node_positions_x[n] + (Math.random() * 100) - (Math.random() * 100)
-    node_positions_y[n] =  node_positions_y[n] + (Math.random() * 100) - (Math.random() * 100)
-    
-    nodes[n].x = node_positions_x[n] 
-    nodes[n].y = node_positions_y[n] 
-  }
-  o_canvas.redraw()
-}
-
-
-// update stuff
-window.setInterval(function(){ // <-- from: https://stackoverflow.com/questions/2170923/whats-the-easiest-way-to-call-a-function-every-5-seconds-in-jquery
-  update_node_loc(nodes)
-}, 50)
-
-o_canvas.bind("click tap", function () {
-  scatter(nodes);
-});
-
-o_canvas.bind("touchmove tap", function () {
-  x = o_canvas.touch.x
-  y = o_canvas.touch.y
-})
-
-document.addEventListener('mousemove', function (event) {
-  x = event.clientX;
-  y = event.clientY;
-});
-
-
-function resize_ocanvas() {
-  o_canvas.width = window.innerWidth;
-  o_canvas.height = window.innerHeight;
-};
-
-window.addEventListener('resize', resize_ocanvas, false);
-
-function build() {
-
-  nodes = []
-  momentums_x = []
-  momentums_y = []
-  node_positions_x = []
-  node_positions_y = []
-  for (i=0; i < s['num_nodes']; i++) {
-    pos_x = window.innerWidth / 2 + Math.random() * 600 - Math.random() * 600
-    pos_y = window.innerHeight / 2 + Math.random() * 600 - Math.random() * 600
-
-    var node = o_canvas.display.arc({
-      x: pos_x,
-      y: pos_y,
-      radius: s['node_size'],
-      start: 360,
-      fill: s['node_fill_color'],
-    })
-
-    nodes = [...nodes, node] // <-- add node to nodes list
-    node_positions_x = [...node_positions_x, pos_x]
-    node_positions_y = [...node_positions_y, pos_y]
-
-    momentums_x = [...momentums_x, 0]
-    momentums_y = [...momentums_y, 0]
-    o_canvas.addChild(node);
-  }
-}
-
-function destroy() {
-  for (node of nodes) {
-    o_canvas.removeChild(node)
-  }
-}
 </script>
+<!-- have a "leave a comment" link that points to ./blog/#leaving-comments -->
 
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
     <div class='truncate-full-path has-text-centered mb-4'>
+        
+        
+        
+        
+        
+        
+        
+        
+        / <a href="/things" class="hover-underline">things</a>
+        
+        
+        
+        
+        
+        
+        / <a href="/things/This Social Media Site Does Not Exist" class="hover-underline">This Social Media Site Does Not Exist</a>
+        
+        
         
         
     </div>
