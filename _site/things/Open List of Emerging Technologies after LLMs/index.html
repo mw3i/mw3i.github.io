@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Things</title>
+    <title>Open, Running List of Expected Technologies We'll See from LLMs</title>
     <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.12/dist/css/uikit.min.css" /> -->
@@ -130,80 +130,103 @@
 </header>
 <main class='theme-dark' style='z-index: 10;'>
     
-    <style type="text/css">
-.hover-post {
-    transition: background-color 0.1s ease;
-    background-color: rgba(0,0,0,.05) !important;
+    <style>
+    .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
-.hover-post:not(:first-of-type) {
-    border-top: 0 !important;
-    /* Remove top border for all but the first */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-.hover-post:hover {
-    background-color: rgba(255, 255, 255, .1) !important;
-    /* Change this to your preferred hover color */
-}
-
-.overlay {
+.slider {
     position: absolute;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    bottom: 0%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.2;
-    /* Adjust this for the desired level of transparency */
-    pointer-events: none;
-    /* Allow clicks to pass through to the content */
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4258ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.column-container h1,
+.column-container h2,
+.column-container h3,
+.column-container h4,
+.column-container h5,
+.column-container h6 {
+    break-inside: avoid; /* Prevent headers from breaking */
+}
+
+@media screen and (max-width: 768px) { /* Bulma's mobile breakpoint */
+    .column-container {
+        column-width: 100\vw !important;
+        max-height: none !important;
+        padding: 30px !important;
+        margin-right: 0px !important;
+    }
 }
 </style>
-<section class='section container is-max-table mx-auto'>
-    <div class="columns is-multiline mx-auto">
-        
-        <div class="column is-4-tablet is-6-desktop mx-auto">
-            <a class="media-content" href="/things/Ok (ask the terminal for help with the terminal)/">
-                <article class="media p-5 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
-                    <div class="content" style="position: relative; z-index: 1;">
-                        <p class='title is-4'><strong>Ok</strong></p>
-                        <p class=''>ask the terminal for help with the terminal</p>
-                        <p class='mt-3 is-6 has-text-grey'></p>
-                    </div>
-                    <div class="overlay" style="background-image: url('/things/Ok (ask the terminal for help with the terminal)/index.png');"></div>
-                </article>
-            </a>
+<!-- this next part could have probably been accomplished with minimal alpine and just 1 css class (column-mode-div), but i nudged chatgpt to use alpine and it came up with a somewhat convoluted approach. -->
+<section class="section p-0 mt-5">
+    <!-- Toggle switch -->
+    <div class="container is-max-tablet">
+        <!-- Container to handle overflow -->
+        <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? '' : 'pb-6'">
+            <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px; margin-right: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
+                <!-- Title of the blog post -->
+                <h1 class="title is-2 has-text-weight-bold">Open, Running List of Expected Technologies We'll See from LLMs</h1>
+                <!-- Date of the blog post -->
+                <p class="subtitle is-5 has-text-grey-dark mt-3"></p>
+                <!-- Main content of the blog post -->
+                <br>
+                <div>
+                    <meta http-equiv="refresh" content="0;url=https://gist.github.com/mw3i/ef93acb74de31fc96cfda09548f9382d">
+
+                </div>
+            </article>
         </div>
-        
-        <div class="column is-4-tablet is-6-desktop mx-auto">
-            <a class="media-content" href="/things/Open List of Emerging Technologies after LLMs/">
-                <article class="media p-5 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
-                    <div class="content" style="position: relative; z-index: 1;">
-                        <p class='title is-4'><strong>Open, Running List of Expected Technologies We'll See from LLMs</strong></p>
-                        <p class=''>An open list of plausible technologies that might emerge from development with LLMs -- with varying degrees of certainty. Submissions vetted for relevance & redundency.</p>
-                        <p class='mt-3 is-6 has-text-grey'></p>
-                    </div>
-                    <div class="overlay" style="background-image: url('/things/Open List of Emerging Technologies after LLMs/');"></div>
-                </article>
-            </a>
-        </div>
-        
-        <div class="column is-4-tablet is-6-desktop mx-auto">
-            <a class="media-content" href="/things/This Social Media Site Does Not Exist/">
-                <article class="media p-5 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
-                    <div class="content" style="position: relative; z-index: 1;">
-                        <p class='title is-4'><strong>This Social Media Site Does Not Exist</strong></p>
-                        <p class=''></p>
-                        <p class='mt-3 is-6 has-text-grey'>2024-05-09</p>
-                    </div>
-                    <div class="overlay" style="background-image: url('/things/This Social Media Site Does Not Exist/index.png');"></div>
-                </article>
-            </a>
-        </div>
-        
     </div>
 </section>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleSwitch = document.querySelector('.field'); // Select the existing toggle switch field
+    const navbarEnd = document.querySelector('#navbarBasicExample .navbar-end'); // Get the navbar-end element
+
+    if (toggleSwitch && navbarEnd) {
+        navbarEnd.insertAdjacentElement('afterbegin', toggleSwitch); // Move the toggle switch to the start of navbar-end
+    }
+});
+</script>
+<!-- have a "leave a comment" link that points to ./blog/#leaving-comments -->
+
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
     <div class='truncate-full-path has-text-centered mb-4'>
@@ -216,6 +239,13 @@
         
         
         / <a href="/things" class="hover-underline">things</a>
+        
+        
+        
+        
+        
+        
+        / <a href="/things/Open List of Emerging Technologies after LLMs" class="hover-underline">Open List of Emerging Technologies after LLMs</a>
         
         
         
