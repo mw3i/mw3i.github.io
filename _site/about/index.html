@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Things</title>
+    <title>About</title>
     <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.12/dist/css/uikit.min.css" /> -->
@@ -114,11 +114,11 @@
                 </div>
             </div>
             <div class="navbar-end">
-                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/things/">/things</a>
+                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/things/">/things</a>
                 <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/thoughts/">/thoughts</a>
                 <!-- <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a> -->
                 <div class="is-medium-radius navbar-item has-dropdown is-hoverable is-rounded mx-2">
-                    <a class="is-medium-radius navbar-link  is-rounded">/about</a>
+                    <a class="is-medium-radius navbar-link  is-active  is-rounded">/about</a>
                     <div class="navbar-dropdown is-boxed has-background-dark is-medium-radius">
                         <a class="navbar-item has-background-dark" href="/about/cv/">/cv</a>
                         <a class="navbar-item has-background-dark" href="/about/resume/">/resume</a>
@@ -130,80 +130,77 @@
 </header>
 <main class='theme-dark' style='z-index: 10;'>
     
-    <style type="text/css">
-.hover-post {
-    transition: background-color 0.1s ease;
-    background-color: rgba(0,0,0,.05) !important;
+    <style>
+  @media screen and (max-width: 768px) {
+    .p-small {
+      padding: 2rem; /* Equivalent to Bulma's p-6 */
+    }
+  }
+table {
+  display: block;
+  overflow-x: auto;
 }
 
-.hover-post:not(:first-of-type) {
-    border-top: 0 !important;
-    /* Remove top border for all but the first */
-}
-
-.hover-post:hover {
-    background-color: rgba(255, 255, 255, .1) !important;
-    /* Change this to your preferred hover color */
-}
-
-.overlay {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    bottom: 0%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.2;
-    /* Adjust this for the desired level of transparency */
-    pointer-events: none;
-    /* Allow clicks to pass through to the content */
-}
 </style>
-<section class='section container is-max-table mx-auto'>
-    <div class="columns is-multiline mx-auto">
-        
-        <div class="column is-4-tablet is-6-desktop mx-auto">
-            <a class="media-content" href="/things/Ok (ask the terminal for help with the terminal)/">
-                <article class="media p-5 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
-                    <div class="content" style="position: relative; z-index: 1;">
-                        <p class='title is-4'><strong>ok</strong></p>
-                        <p class=''>ask the terminal for help with the terminal</p>
-                        <p class='mt-3 is-6 has-text-grey'></p>
-                    </div>
-                    <div class="overlay" style="background-image: url('/things/Ok (ask the terminal for help with the terminal)/index.png');"></div>
-                </article>
-            </a>
-        </div>
-        
-        <div class="column is-4-tablet is-6-desktop mx-auto">
-            <a class="media-content" href="/things/Open List of Emmerging Technologies after LLMs/">
-                <article class="media p-5 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
-                    <div class="content" style="position: relative; z-index: 1;">
-                        <p class='title is-4'><strong>Open, Running List of Expected Technologies We'll See from LLMs</strong></p>
-                        <p class=''>An open list of plausible technologies that might emerge from development with LLMs -- with varying degrees of certainty. Submissions vetted for relevance & redundency.</p>
-                        <p class='mt-3 is-6 has-text-grey'></p>
-                    </div>
-                    <div class="overlay" style="background-image: url('/things/Open List of Emmerging Technologies after LLMs/');"></div>
-                </article>
-            </a>
-        </div>
-        
-        <div class="column is-4-tablet is-6-desktop mx-auto">
-            <a class="media-content" href="/things/This Social Media Site Does Not Exist/">
-                <article class="media p-5 hover-post is-medium-radius" style='height: 300px; overflow: hidden; position: relative;'>
-                    <div class="content" style="position: relative; z-index: 1;">
-                        <p class='title is-4'><strong>This Social Media Site Does Not Exist</strong></p>
-                        <p class=''></p>
-                        <p class='mt-3 is-6 has-text-grey'>2024-05-09</p>
-                    </div>
-                    <div class="overlay" style="background-image: url('/things/This Social Media Site Does Not Exist/index.png');"></div>
-                </article>
-            </a>
-        </div>
-        
-    </div>
-</section>
+<div class="content container is-max-tablet p-small">
+    <!-- [resume](/about/resume) | [cv](/about/cv) -->
+<div style='min-height: 80vh;' id="message-box"></div>
+
+
+<script>
+// List of messages to reveal, each message is an array of words
+const messages = [
+    "hmmm.....",
+    "there's nothing here...",
+    "how did you even find this?",
+    "you weren't supposed to find this page...",
+    "you're probably thinking there's something interesting here...",
+    "you're thinking, 'he's got some cool fun thing lined up for me to see'",
+    "but no... there's actually nothing here. nothing at all",
+    "so maybe...",
+    "you should just go back to the main page...",
+    ". . .",
+    ". . .",
+    ". . .",
+    "alirght since you aren't leaving, ima just nudge you back to the home page so you can play around with the swarm",
+    "bye!",
+];
+
+// Helper function to delay for a specified time (ms)
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Function to reveal messages one word at a time
+async function loadDrives() {
+    const messageBox = document.getElementById('message-box');
+
+    for (const message of messages) {
+        // Create a new paragraph for each message
+        const p = document.createElement('p');
+        const words = message.split(' '); // Split the message into words
+
+        for (const word of words) {
+            // Add each word to the paragraph
+            p.textContent += word + " ";
+            messageBox.appendChild(p);
+
+            // Wait 1 second before revealing the next word
+            await delay(100);
+        }
+
+        // Wait 5 seconds before revealing the next message
+        await delay(3000);
+    }
+
+    window.location.href = '/';
+}
+
+// Call the function to start revealing the messages
+loadDrives();
+</script>
+</div>
+
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
     <div class='truncate-full-path has-text-centered mb-4'>
@@ -215,7 +212,7 @@
         
         
         
-        / <a href="/things" class="hover-underline">things</a>
+        / <a href="/about" class="hover-underline">about</a>
         
         
         
