@@ -1,7 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
+const markdownIt = require("markdown-it");
+const markdownItFootnote = require("markdown-it-footnote");
+
 module.exports = function(eleventyConfig) {
+    // Configure Markdown-It with the footnote plugin
+    const md = markdownIt().use(markdownItFootnote);
+
+    // Set Markdown-It as the markdown engine
+    eleventyConfig.setLibrary("md", md);
+
     eleventyConfig.addPassthroughCopy("./src/-/");
     eleventyConfig.addPassthroughCopy("./src/favicon.ico");
     

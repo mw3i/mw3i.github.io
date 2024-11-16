@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open, Running List of Expected Technologies We'll See from LLMs</title>
+    <title>Conjecture: Real-world events will tend to have multiple causes</title>
     <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.12/dist/css/uikit.min.css" /> -->
@@ -114,8 +114,8 @@
                 </div>
             </div>
             <div class="navbar-end">
-                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/things/">/things</a>
-                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/thoughts/">/thoughts</a>
+                <a class="is-medium-radius navbar-item is-rounded  mx-2" href="/things/">/things</a>
+                <a class="is-medium-radius navbar-item is-rounded  is-active  mx-2" href="/thoughts/">/thoughts</a>
                 <!-- <a class="is-medium-radius navbar-item is-rounded  mx-2" href="https://github.com/mw3i?tab=repositories" target="_blank">/code</a> -->
                 <div class="is-medium-radius navbar-item has-dropdown is-hoverable is-rounded mx-2">
                     <a class="is-medium-radius navbar-link  is-rounded">/about</a>
@@ -193,35 +193,206 @@ input:checked + .slider:before {
         margin-right: 0px !important;
     }
 }
+
+@media screen and (min-width: 769px) and (max-width: 1224px) {
+    .column-container {
+        column-width: 33vw !important;
+        max-height: 89vh;
+        z-index: 0;
+        overflow-x: auto !important;
+        padding: 40px;
+        column-gap: 40px;
+        margin-right: 40px;
+    }
+}
 </style>
 <!-- this next part could have probably been accomplished with minimal alpine and just 1 css class (column-mode-div), but i nudged chatgpt to use alpine and it came up with a somewhat convoluted approach. -->
-<section class="section p-0 mt-5">
+<section class="section p-0" x-data="{ isToggled: localStorage.getItem('toggleStatus') === 'true' || false }">
     <!-- Toggle switch -->
-    <div class="container is-max-tablet">
+    <div class="field is-flex is-align-items-center pt-3 pr-6">
+        <label for="switchToggle" class="mr-2">horizontal mode</label>
+        <label class="switch">
+            <input id="switchToggle" type="checkbox" name="switchToggle" class="switch is-rounded" x-model="isToggled" @click="localStorage.setItem('toggleStatus', $el.checked);" >
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div :class="isToggled ? 'container ml-0 mr-0' : 'container is-max-tablet'" :style="isToggled ? 'width: 100vw;' : 'overflow-x: auto !important;'" class="">
         <!-- Container to handle overflow -->
         <div class="content-wrapper p-0" :style="isToggled ? 'width: 100vw' : ''" :class="isToggled ? '' : 'pb-6'">
             <article class="content column-container" :style="isToggled ? 'column-width: 25vw; max-height: 89vh; z-index: 0; overflow-x: auto !important; padding: 40px; column-gap: 40px; margin-right: 40px;' : ''" :class="isToggled ? 'pb-4' : ''">
                 <!-- Title of the blog post -->
-                <h1 class="title is-2 has-text-weight-bold">Open, Running List of Expected Technologies We'll See from LLMs</h1>
+                <h1 class="title is-2 has-text-weight-bold">Conjecture: Real-world events will tend to have multiple causes</h1>
                 <!-- Date of the blog post -->
-                <p class="subtitle is-5 has-text-grey-dark mt-3"></p>
+                <p class="subtitle is-5 has-text-grey-dark mt-3">November 11, 2024</p>
                 <!-- Main content of the blog post -->
                 <br>
                 <div>
-                    <p><img src="" alt=""></p>
+                    <img src='model-with-many-variables.webp'>
+                    <br>
+                    <br>
+                    <br>
+                    <p>When some real-world event happens, we have a tendency to seek out <em>which variables</em> (among many possible variables) were the cause. Knowing that information means you can influence whether or not that event happens in the future -- so it seems self-evident that we evolved a proclivity towards hunting for causal variables where we can find them. What's somewhat less self-evident is our preference for <em>single</em> causal variables instead of <em>many</em> <a href="https://link.springer.com/content/pdf/10.3758/BF03207622.pdf">[#]</a>. There are many potential explanations as to why our explanations minimize the number of relevant variables, like: computational efficiency, ease of communication, ease of memory, information complexity constraints <a href="http://wexler.free.fr/library/files/feldman%20(2000)%20minimization%20of%20boolean%20complexity%20in%20human%20concept%20learning.pdf">[#]</a>, etc. However, I'm not aware of any a priori reason to assume that the base rate for <em>number of causal variables that explain some event</em> should hover around 1<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<p>So, explanations of real-world events have some number of causal variables that we should <em>expect</em> to be relevant. In different domains, this number might vary; in some cases, it might be very low (i.e., &quot;monogenic&quot;<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>). But my conjecture here is that many of the hard-to-predict domains we care about (which companies succeed, which nations go to war, what coalitions form in our social networks) have a <em>number of relevant causal variables</em> that is particularly high.</p>
+<p>Simple example: a horse dies on a farm. Was it due to:</p>
 <ul>
-<li>[ ] automated call centers</li>
-<li>[ ] actual voice-to-text control of device operating systems (phones / laptops / etc) (i.e., Siri but it works)</li>
-<li>[ ] automated coders chipping away at every issue on github (heard this idea first on <a href="">Dwarkesh Podcast</a>)
-<ul>
-<li>^ implications for open source ecosystem? (what funds the server costs?)</li>
+<li>malnutrition</li>
+<li>cold weather</li>
+<li>a bad virus</li>
 </ul>
+<p>We'll say a horse dies when it no longer has energy to sustain its bodily function, and all of these factors have an additive effect on the amount of energy in the horses body. So now we'll define a critical threshold of energy needed for the horse to not be dead. Let's call it, <code>0.2</code>.</p>
+<p>So now we randomly sample from the space of possible horse realities, with varying conditions.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Malnutrition</th>
+<th>Cold Weather</th>
+<th>Virus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horse 1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Horse 2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Horse 3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Horse 4</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Horse 5</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 6</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 7</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>We'll say each condition (malnutrition, cold, virus) has an effect of <code>-.33</code> on available energy. The horse dies when energy falls below <code>0.2</code>. Now we get:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Malnutrition</th>
+<th>Cold Weather</th>
+<th>Virus</th>
+<th>Energy</th>
+<th>Alive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horse 1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.33</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1.00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1.00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 4</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.33</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 5</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0.33</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 6</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.66</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horse 7</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0.01</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Horse 8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.66</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>So one farmer might say, 'horse 7 died from a virus', and they'd be partially correct. But another farmer would say, 'no, it was the cold', etc etc. Neither is considering the more complicated model that the event of &quot;dead horse&quot; will never present itself in our universe until a totality of relevant variables pushes past some qualitative threshold. Things get more complicated as the number of variables grow and the &quot;thresholds&quot; become fuzzy, but you get the idea.</p>
+<p>It isn't particularly enlightening, or that big of a conceptual leap, to say that real-world explanations might be &quot;polygenic&quot; more often than not <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>. And, maybe it's more socially rational to have a <em>unidimensional bias</em>. Maybe it makes communication easier. Maybe it provides a social scaffolding where other people can aggregate our simple models into more complicated ones (that happen to be more accurate). Maybe it's a fundamental part of how society evolved to tackle complicated problems as groups. But even as we follow the ritual of reacting to a real-world event and publicly professing our predicted &quot;monogenic&quot; explanations, we should keep in the back of our minds the understanding that many real-world systems will only manifest particular events when a critical number of conditions are met.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>We can appeal to Occam's razor as a useful heuristic that says we should favor simpler explanations among equally valid competitors, but that isn't by itself an empirical claim about the modal structure of real-world phenomena <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-</ul>
-<hr>
-<pre><code>**Hint:** make a pull request to modify the list
-</code></pre>
-<!-- <meta http-equiv="refresh" content="0;url=https://www.example.com"> -->
+<li id="fn2" class="footnote-item"><p>to borrow a term from biology <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>though it isn't self-evident either <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
                 </div>
             </article>
@@ -239,7 +410,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <!-- have a "leave a comment" link that points to ./blog/#leaving-comments -->
-
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
     <div class='truncate-full-path has-text-centered mb-4'>
@@ -251,14 +421,14 @@ document.addEventListener("DOMContentLoaded", function() {
         
         
         
-        / <a href="/things" class="hover-underline">things</a>
+        / <a href="/thoughts" class="hover-underline">thoughts</a>
         
         
         
         
         
         
-        / <a href="/things/Open List of Emmerging Technologies after LLMs" class="hover-underline">Open List of Emmerging Technologies after LLMs</a>
+        / <a href="/thoughts/2024-11-15 | Real World Events Tend have Multiple Causes" class="hover-underline">2024-11-15 | Real World Events Tend have Multiple Causes</a>
         
         
         

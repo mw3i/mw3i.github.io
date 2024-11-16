@@ -130,170 +130,142 @@
 </header>
 <main class='theme-dark' style='z-index: 10;'>
     
-    <script src='/-/ocanvas-2.9.1.js'></script>
-<section class="columns" style="height: 90vh;">
-    <!-- left column -->
-    <div class="column is-full is-one-quarter-tablet is-medium-radius">
-        <br>
-        <br>
-        <br>
-        <div class='mb-5'>
-            <figure class="image is-128x128 mx-auto" style='z-index: 1000;'>
-                <img class="is-rounded is-128x128" src="/-/avatar.jpg" style="object-fit: cover; width: 128px; height: 128px;">
-            </figure>
-        </div>
-        <div class='has-text-centered'>
-            <p class="title has-text-grey">matt</p>
-            <p class="subtitle has-text-grey">data person</p>
-            <!-- <a class="button" href="/about/resume">resume</a> -->
-            <!-- <a class="button" href="/about/cv">cv</a> -->
-        </div>
-        <!-- right column -->
-        <div class="column is-full is-three-quarters-tablet">
-            <div style='position: fixed; height: 90vh; width: 99vw; top: 0; left: 0; z-index: 0;'>
-                <canvas id='particle_space'>
-                </canvas>
-            </div>
-        </div>
-    </div>
-</section>
-<script>
-// settings & swarm parameters
+    <p>&lt;script src='/-/ocanvas-2.9.1.js'&gt;&lt;/script&gt;
+&lt;section class=&quot;columns&quot; style=&quot;height: 90vh;&quot;&gt;
+&lt;!-- left column --&gt;
+&lt;div class=&quot;column is-full is-one-quarter-tablet is-medium-radius&quot;&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div class='mb-5'&gt;
+&lt;figure class=&quot;image is-128x128 mx-auto&quot; style='z-index: 1000;'&gt;
+&lt;img class=&quot;is-rounded is-128x128&quot; src=&quot;/-/avatar.jpg&quot; style=&quot;object-fit: cover; width: 128px; height: 128px;&quot;&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;div class='has-text-centered'&gt;
+&lt;p class=&quot;title has-text-grey&quot;&gt;matt&lt;/p&gt;
+&lt;p class=&quot;subtitle has-text-grey&quot;&gt;data person&lt;/p&gt;
+&lt;!-- &lt;a class=&quot;button&quot; href=&quot;/about/resume&quot;&gt;resume&lt;/a&gt; --&gt;
+&lt;!-- &lt;a class=&quot;button&quot; href=&quot;/about/cv&quot;&gt;cv&lt;/a&gt; --&gt;
+&lt;/div&gt;
+&lt;!-- right column --&gt;
+&lt;div class=&quot;column is-full is-three-quarters-tablet&quot;&gt;
+&lt;div style='position: fixed; height: 90vh; width: 99vw; top: 0; left: 0; z-index: 0;'&gt;
+&lt;canvas id='particle_space'&gt;
+&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</p>
+<p>&lt;script&gt;
+// settings &amp; swarm parameters
 p = [
-    ['point speed', [1, 1000, 300]], // <-- min, max, default
-    ['point focus', [1, 20, 7]], 
-    ['point momentum', [.001, 1, .7]],
-    ['social pressure', [.00001, .2, .01]],
-    ['noise', [1, 30, 10]],
-]
-
-s = {
-    'num_nodes': 150,
-    'node_size': 4,
-    'node_fill_color': 'rgba(255,255,255,.8)',
-    // 'canvas_background': '#ececec'
-    'point speed': p[0][1][2],
-    'point focus': p[1][1][2],
-    'point momentum': p[2][1][2],
-    'social pressure': p[3][1][2],
-    'noise': p[4][1][2],
-};
-
-const arrMean = arr => arr.reduce((a,b) => a + b, 0) / arr.length
-
-// __Initial Setup__
+['point speed', [1, 1000, 300]], // &lt;-- min, max, default
+['point focus', [1, 20, 7]],
+['point momentum', [.001, 1, .7]],
+['social pressure', [.00001, .2, .01]],
+['noise', [1, 30, 10]],
+]</p>
+<p>s = {
+'num_nodes': 150,
+'node_size': 4,
+'node_fill_color': 'rgba(255,255,255,.8)',
+// 'canvas_background': '#ececec'
+'point speed': p[0][1][2],
+'point focus': p[1][1][2],
+'point momentum': p[2][1][2],
+'social pressure': p[3][1][2],
+'noise': p[4][1][2],
+};</p>
+<p>const arrMean = arr =&gt; arr.reduce((a,b) =&gt; a + b, 0) / arr.length</p>
+<p>// <strong>Initial Setup</strong>
 var canvas = document.getElementById('particle_space');
 // canvas.width  = window.innerWidth;
-// canvas.height = window.innerHeight; 
-
-var ctx = canvas.getContext('2d');
+// canvas.height = window.innerHeight;</p>
+<p>var ctx = canvas.getContext('2d');
 ctx.lineWidth = 2;
 ctx.canvas.width  = window.innerWidth;
-ctx.canvas.height = window.innerHeight;
-
-o_canvas = oCanvas.create({
-  canvas: "#particle_space",
-  background: s['canvas_background'],
-});
-
-build()
-
-x = window.innerWidth / 2
-y = window.innerHeight / 2
-
-// this is where the mathgic happens
+ctx.canvas.height = window.innerHeight;</p>
+<p>o_canvas = oCanvas.create({
+canvas: &quot;#particle_space&quot;,
+background: s['canvas_background'],
+});</p>
+<p>build()</p>
+<p>x = window.innerWidth / 2
+y = window.innerHeight / 2</p>
+<p>// this is where the mathgic happens
 function update_node_loc(nodes) {
-  for (let n in nodes) {
-
-    momentums_x[n] = .5 * (x - nodes[n].x) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_x[n]) + (s['social pressure'] * (x - arrMean(node_positions_x)))// + (.0075 * (node_positions_x[n] - arrMean(node_positions_x)))
-    momentums_y[n] = .5 * (y - nodes[n].y) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_y[n]) + (s['social pressure'] * (y - arrMean(node_positions_y)))// + (.0075 * (node_positions_y[n] - arrMean(node_positions_y)))
-    // i wonder what "social momentum" would look like (beyond just individual point momentum)
-
-    node_positions_x[n] = node_positions_x[n] + momentums_x[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])
-    node_positions_y[n] = node_positions_y[n] + momentums_y[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])
-
-    nodes[n].x = node_positions_x[n]
-    nodes[n].y = node_positions_y[n]
-
-  }
-  o_canvas.redraw()
-}
-
-// this is a fun add on
+for (let n in nodes) {</p>
+<p>momentums_x[n] = .5 * (x - nodes[n].x) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_x[n]) + (s['social pressure'] * (x - arrMean(node_positions_x)))// + (.0075 * (node_positions_x[n] - arrMean(node_positions_x)))
+momentums_y[n] = .5 * (y - nodes[n].y) * Math.exp(s['point focus'] * -Math.abs(Math.sqrt((x - nodes[n].x)**2 + (y - nodes[n].y)**2))/s['point speed']) + (s['point momentum'] * momentums_y[n]) + (s['social pressure'] * (y - arrMean(node_positions_y)))// + (.0075 * (node_positions_y[n] - arrMean(node_positions_y)))
+// i wonder what &quot;social momentum&quot; would look like (beyond just individual point momentum)</p>
+<p>node_positions_x[n] = node_positions_x[n] + momentums_x[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])
+node_positions_y[n] = node_positions_y[n] + momentums_y[n] + (Math.random() * s['noise']) - (Math.random() * s['noise'])</p>
+<p>nodes[n].x = node_positions_x[n]
+nodes[n].y = node_positions_y[n]</p>
+<p>}
+o_canvas.redraw()
+}</p>
+<p>// this is a fun add on
 function scatter(nodes) {
-  for (let n in nodes) {
-    node_positions_x[n] =  node_positions_x[n] + (Math.random() * 100) - (Math.random() * 100)
-    node_positions_y[n] =  node_positions_y[n] + (Math.random() * 100) - (Math.random() * 100)
-    
-    nodes[n].x = node_positions_x[n] 
-    nodes[n].y = node_positions_y[n] 
-  }
-  o_canvas.redraw()
+for (let n in nodes) {
+node_positions_x[n] =  node_positions_x[n] + (Math.random() * 100) - (Math.random() * 100)
+node_positions_y[n] =  node_positions_y[n] + (Math.random() * 100) - (Math.random() * 100)</p>
+<p>nodes[n].x = node_positions_x[n]
+nodes[n].y = node_positions_y[n]
 }
-
-
-// update stuff
-window.setInterval(function(){ // <-- from: https://stackoverflow.com/questions/2170923/whats-the-easiest-way-to-call-a-function-every-5-seconds-in-jquery
-  update_node_loc(nodes)
-}, 50)
-
-o_canvas.bind("click tap", function () {
-  scatter(nodes);
-});
-
-o_canvas.bind("touchmove tap", function () {
-  x = o_canvas.touch.x
-  y = o_canvas.touch.y
-})
-
-document.addEventListener('mousemove', function (event) {
-  x = event.clientX;
-  y = event.clientY;
-});
-
-
-function resize_ocanvas() {
-  o_canvas.width = window.innerWidth;
-  o_canvas.height = window.innerHeight;
-};
-
-window.addEventListener('resize', resize_ocanvas, false);
-
-function build() {
-
-  nodes = []
-  momentums_x = []
-  momentums_y = []
-  node_positions_x = []
-  node_positions_y = []
-  for (i=0; i < s['num_nodes']; i++) {
-    pos_x = window.innerWidth / 2 + Math.random() * 600 - Math.random() * 600
-    pos_y = window.innerHeight / 2 + Math.random() * 600 - Math.random() * 600
-
-    var node = o_canvas.display.arc({
-      x: pos_x,
-      y: pos_y,
-      radius: s['node_size'],
-      start: 360,
-      fill: s['node_fill_color'],
-    })
-
-    nodes = [...nodes, node] // <-- add node to nodes list
-    node_positions_x = [...node_positions_x, pos_x]
-    node_positions_y = [...node_positions_y, pos_y]
-
-    momentums_x = [...momentums_x, 0]
-    momentums_y = [...momentums_y, 0]
-    o_canvas.addChild(node);
-  }
+o_canvas.redraw()
+}</p>
+<p>// update stuff
+window.setInterval(function(){ // &lt;-- from: https://stackoverflow.com/questions/2170923/whats-the-easiest-way-to-call-a-function-every-5-seconds-in-jquery
+update_node_loc(nodes)
+}, 50)</p>
+<p>o_canvas.bind(&quot;click tap&quot;, function () {
+scatter(nodes);
+});</p>
+<p>o_canvas.bind(&quot;touchmove tap&quot;, function () {
+x = o_canvas.touch.x
+y = o_canvas.touch.y
+})</p>
+<p>document.addEventListener('mousemove', function (event) {
+x = event.clientX;
+y = event.clientY;
+});</p>
+<p>function resize_ocanvas() {
+o_canvas.width = window.innerWidth;
+o_canvas.height = window.innerHeight;
+};</p>
+<p>window.addEventListener('resize', resize_ocanvas, false);</p>
+<p>function build() {</p>
+<p>nodes = []
+momentums_x = []
+momentums_y = []
+node_positions_x = []
+node_positions_y = []
+for (i=0; i &lt; s['num_nodes']; i++) {
+pos_x = window.innerWidth / 2 + Math.random() * 600 - Math.random() * 600
+pos_y = window.innerHeight / 2 + Math.random() * 600 - Math.random() * 600</p>
+<p>var node = o_canvas.display.arc({
+x: pos_x,
+y: pos_y,
+radius: s['node_size'],
+start: 360,
+fill: s['node_fill_color'],
+})</p>
+<p>nodes = [...nodes, node] // &lt;-- add node to nodes list
+node_positions_x = [...node_positions_x, pos_x]
+node_positions_y = [...node_positions_y, pos_y]</p>
+<p>momentums_x = [...momentums_x, 0]
+momentums_y = [...momentums_y, 0]
+o_canvas.addChild(node);
 }
-
-function destroy() {
-  for (node of nodes) {
-    o_canvas.removeChild(node)
-  }
+}</p>
+<p>function destroy() {
+for (node of nodes) {
+o_canvas.removeChild(node)
 }
-</script>
+}
+&lt;/script&gt;</p>
 
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
