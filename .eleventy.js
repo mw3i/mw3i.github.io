@@ -6,7 +6,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 
 module.exports = function(eleventyConfig) {
     // Configure Markdown-It with the footnote plugin
-    const md = markdownIt().use(markdownItFootnote);
+    const md = markdownIt({html: true}).use(markdownItFootnote);
 
     // Set Markdown-It as the markdown engine
     eleventyConfig.setLibrary("md", md);
