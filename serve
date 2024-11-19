@@ -1,4 +1,4 @@
 #!/bin/bash
 cd "$(dirname "$(realpath "$0")")"/
 
-eleventy --watch --serve
+./npm/bin/eleventy --serve --watch
