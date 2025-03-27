@@ -129,7 +129,6 @@
     </nav>
 </header>
 <main class='theme-dark' style='z-index: 10;'>
-    
     <script src='/-/ocanvas-2.9.1.js'></script>
 <section class="columns" style="height: 90vh;">
     <!-- left column -->
@@ -143,17 +142,10 @@
             </figure>
         </div>
         <div class='has-text-centered'>
-            <p class="title has-text-grey">matt</p>
+            <p class="title has-text-grey">matt wetzel</p>
             <p class="subtitle has-text-grey">data person</p>
             <!-- <a class="button" href="/about/resume">resume</a> -->
             <!-- <a class="button" href="/about/cv">cv</a> -->
-        </div>
-        <!-- right column -->
-        <div class="column is-full is-three-quarters-tablet">
-            <div style='position: fixed; height: 90vh; width: 99vw; top: 0; left: 0; z-index: 0;'>
-                <canvas id='particle_space'>
-                </canvas>
-            </div>
         </div>
     </div>
 </section>
@@ -182,7 +174,22 @@ s = {
 const arrMean = arr => arr.reduce((a,b) => a + b, 0) / arr.length
 
 // __Initial Setup__
-var canvas = document.getElementById('particle_space');
+const mainEl = document.querySelector("main");
+mainEl.style.position = "relative"; // allow absolute children
+
+const canvas = document.createElement("canvas");
+canvas.id = "particle_space";
+canvas.style.position = "absolute";
+canvas.style.top = 0;
+canvas.style.left = 0;
+canvas.style.width = "100%";
+canvas.style.height = "100%";
+canvas.style.zIndex = "0";
+// canvas.style.pointerEvents = "none"; // so it doesn’t block clicks
+
+mainEl.prepend(canvas); // insert at top of <main>
+
+// var canvas = document.getElementById('particle_space');
 // canvas.width  = window.innerWidth;
 // canvas.height = window.innerHeight; 
 
@@ -236,26 +243,34 @@ function scatter(nodes) {
 window.setInterval(function(){ // <-- from: https://stackoverflow.com/questions/2170923/whats-the-easiest-way-to-call-a-function-every-5-seconds-in-jquery
   update_node_loc(nodes)
 }, 50)
+document.addEventListener('mousemove', function (event) {
+  const mainRect = document.querySelector("main").getBoundingClientRect();
+  x = event.clientX - mainRect.left;
+  y = event.clientY - mainRect.top;
+});
 
 o_canvas.bind("click tap", function () {
   scatter(nodes);
 });
 
 o_canvas.bind("touchmove tap", function () {
-  x = o_canvas.touch.x
-  y = o_canvas.touch.y
-})
-
-document.addEventListener('mousemove', function (event) {
-  x = event.clientX;
-  y = event.clientY;
+  const mainRect = document.querySelector("main").getBoundingClientRect();
+  x = o_canvas.touch.x - mainRect.left;
+  y = o_canvas.touch.y - mainRect.top;
 });
 
+document.addEventListener('mousemove', function (event) {
+  const mainRect = document.querySelector("main").getBoundingClientRect();
+  x = event.clientX - mainRect.left;
+  y = event.clientY - mainRect.top;
+});
 
 function resize_ocanvas() {
-  o_canvas.width = window.innerWidth;
-  o_canvas.height = window.innerHeight;
-};
+  const mainBounds = document.querySelector("main").getBoundingClientRect();
+  o_canvas.width = mainBounds.width;
+  o_canvas.height = mainBounds.height;
+}
+resize_ocanvas()
 
 window.addEventListener('resize', resize_ocanvas, false);
 
@@ -298,10 +313,11 @@ function destroy() {
 </main>
 <footer class="footer has-background-dark mt-6" style='z-index: 2000;'>
     <div class='truncate-full-path has-text-centered mb-4'>
+        / <a href="/" class="hover-underline">mw</a>
         
         
     </div>
-    <div class="content has-text-centered">
+    <div class="content has-text-centered" id="profiles-nav-icons">
         <p>mattwetzel</p>
         <div class='mt-5'>
             <a href="https://github.com/mw3i" class="icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">

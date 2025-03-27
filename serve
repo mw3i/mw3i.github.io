@@ -1,0 +1,5 @@
+#!/bin/bash
+cd "$(dirname "$0")" # <-- anchor location to where this script is stored
+
+cd _site
+python3 -m http.server

@@ -1,0 +1,3 @@
+#!/bin/bash
+cd "$(dirname "$0")" # <-- anchor location to where this script is stored
+npx eleventy
